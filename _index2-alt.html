@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>docunova GmbH — Druck, Kopie &amp; Dokumentenmanagement</title>
+<meta name="description" content="docunova aus Rosbach v. d. Höhe: Druck- und Multifunktionssysteme, Managed Print Services und Dokumentenmanagement — herstellerunabhängig, persönlich, seit 1986.">
+<link rel="stylesheet" href="fonts-site.css">
+<link rel="stylesheet" href="site.css">
+<script>
+(function(){
+  try{
+    var s = JSON.parse(localStorage.getItem('dn-a11y') || '{}');
+    var h = document.documentElement;
+    if(s.bigtext) h.classList.add('a11y-bigtext');
+    if(s.contrast) h.classList.add('a11y-contrast');
+    if(s.gray) h.classList.add('a11y-gray');
+    if(s.noanim) h.classList.add('a11y-noanim');
+  }catch(e){}
+  try{ localStorage.setItem('dn-view','klassisch'); }catch(e){}
+  if(new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embedded');
+})();
+</script>
+<style>
+  .sec-head h2{font-size:clamp(2.1rem,4.4vw,3.75rem);letter-spacing:-.02em}
+  .sec-intro{font-size:1.06rem;line-height:1.6;color:var(--muted);max-width:340px;margin:0}
+  .section{padding:104px 0}
+  .section.soft{background:var(--soft)}
+
+  .hero{background:var(--paper);padding:84px 0 104px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+  .hero h1{font-size:clamp(2.875rem,6.4vw,6.25rem);line-height:.94;letter-spacing:-.03em}
+  .hero-sub{font-size:1.19rem;line-height:1.6;color:var(--muted);max-width:480px;margin:30px 0 0}
+  .hero-ctas{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+  .hero-trust{display:flex;align-items:center;gap:22px;margin-top:40px;font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.06em;color:#7a7a80}
+  .hero-trust b{color:var(--ink);font-weight:700}
+  .hero-trust .sep{width:1px;height:14px;background:#dcdad6}
+  .hero-media{position:relative;height:540px}
+  .hero-photo{position:absolute;inset:0;border-radius:3px;overflow:hidden}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:35% center;display:block}
+  .hero-tri{position:absolute;left:-34px;bottom:-34px;width:130px;height:130px;background:var(--red);clip-path:polygon(0 0,0 100%,100% 100%)}
+  .hero-badge{position:absolute;top:30px;right:-26px;background:var(--ink);color:#fff;padding:20px 24px;border-radius:3px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+  .hero-badge .num{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:2.1rem;line-height:1}
+  .hero-badge .lbl{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.1em;color:#b9b9bf;margin-top:4px}
+
+  .stats{background:var(--ink);color:#fff;padding:18px 0}
+  .stats-grid{max-width:1240px;margin:0 auto;padding:34px 36px;display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
+  .stat .num{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:3.4rem;line-height:1;color:#fff}
+  .stat .num.red{color:var(--red)}
+  html.a11y-contrast .stat .num.red{color:#ff8fa3}
+  .stat .lbl{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.08em;color:var(--dark-muted);margin-top:10px}
+
+  .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+  .card{padding:36px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s;scroll-margin-top:90px}
+  .card:hover{background:#faf9f6}
+  .card .idx{font-family:'Space Mono',monospace;font-size:.8rem;color:var(--red);letter-spacing:.1em}
+  .card h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.38rem;line-height:1.15;margin:18px 0 12px}
+  .card p{font-size:.94rem;line-height:1.6;color:var(--muted2);margin:0 0 22px}
+  .card .more{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.06em;color:var(--ink);text-decoration:none;display:inline-block}
+  .card .more:hover{color:var(--red)}
+  .card .links{display:flex;flex-direction:column;gap:6px}
+
+  .branche-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+  .branche-tile{position:relative;border:none;padding:0;margin:0;cursor:pointer;border-radius:3px;overflow:hidden;aspect-ratio:4/3;background:#e2e0dc;text-align:left;font-family:'Hanken Grotesk',sans-serif;display:block}
+  .branche-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+  .branche-tile:hover img,.branche-tile:focus-visible img{transform:scale(1.06)}
+  .branche-tile .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;background:linear-gradient(to top,rgba(11,11,12,.9),rgba(11,11,12,.55) 45%,rgba(11,11,12,0));color:#fff;font-weight:700;font-size:.95rem;line-height:1.2}
+  .branche-tile[aria-selected="true"]{box-shadow:inset 0 0 0 3px var(--red)}
+  .branche-tile[aria-selected="true"]::after{content:'';position:absolute;left:0;top:0;border-left:38px solid var(--red);border-bottom:38px solid transparent}
+  .branche-detail{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+  .branche-copy{padding:52px 48px}
+  .branche-tag{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.12em;color:#9a9a9f;margin-bottom:14px}
+  .branche-copy h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:1.9rem;line-height:1.1;letter-spacing:-.01em;margin:0 0 24px;color:var(--ink)}
+  .branche-bullets{display:flex;flex-direction:column;gap:16px}
+  .branche-bullets .b{display:flex;align-items:flex-start;gap:14px}
+  .branche-bullets .tri{flex:none;width:18px;height:18px;margin-top:3px;background:var(--red);clip-path:polygon(0 0,0 100%,100% 100%)}
+  .branche-bullets span{font-size:1rem;line-height:1.5;color:#3a3a40}
+  .branche-cta{display:inline-flex;align-items:center;gap:10px;margin-top:34px;color:var(--red);font-weight:600;font-size:1rem;text-decoration:none}
+  .branche-cta:hover{gap:16px}
+  .branche-photo{position:relative;min-height:380px}
+  .branche-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .bild-hinweis{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.04em;color:#8a8a90;margin:16px 0 0}
+
+  .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .calc-sliders{display:flex;flex-direction:column;gap:30px}
+  .calc-row .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+  .calc-row label{font-size:.94rem;font-weight:600;color:var(--ink)}
+  .calc-row output{font-family:'Space Mono',monospace;font-size:1.1rem;color:var(--red);font-weight:700}
+  .ticks{display:flex;justify-content:space-between;margin-top:9px;font-family:'Space Mono',monospace;font-size:.63rem;color:#9a9a9f}
+  .ticks span{flex:1;text-align:center}
+  .ticks span:first-child{text-align:left}
+  .ticks span:last-child{text-align:right}
+  .ticks span.on{color:var(--red);font-weight:700}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:#dcdad6;border-radius:4px;outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--red);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--red);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .calc-result{background:var(--ink);color:#fff;border-radius:4px;padding:44px;position:relative;overflow:hidden}
+  .calc-result .deco{position:absolute;right:-40px;bottom:-40px;width:150px;height:150px;background:var(--red);opacity:.16;clip-path:polygon(0 0,0 100%,100% 100%)}
+  .calc-result .in{position:relative}
+  .cr-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .cr-head .lbl{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.1em;color:var(--dark-muted)}
+  .cr-head .pct{background:var(--red);color:#fff;font-family:'Space Mono',monospace;font-size:.8rem;font-weight:700;padding:5px 11px;border-radius:2px}
+  .cr-save{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(2.75rem,5vw,4.25rem);line-height:1;letter-spacing:-.02em}
+  .cr-sep{height:1px;background:#26262b;margin:30px 0}
+  .cr-bar-row{margin-bottom:18px}
+  .cr-bar-row .t{display:flex;justify-content:space-between;font-size:.8rem;color:#b9b9bf;margin-bottom:8px}
+  .cr-bar-row .t.w{color:#fff}
+  .cr-bar-row .t .v{font-family:'Space Mono',monospace}
+  .cr-bar{height:8px;background:#26262b;border-radius:4px;overflow:hidden}
+  .cr-bar>div{height:100%;border-radius:4px}
+  .cr-bar .full{width:100%;background:#6f6f76}
+  .cr-bar .opt{background:var(--red);transition:width .35s cubic-bezier(.16,1,.3,1)}
+  .cr-co2{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--dark-soft);padding:14px 16px;background:#15151a;border-radius:3px}
+  .cr-co2 .tri{flex:none;width:16px;height:16px;background:#3fae5a;clip-path:polygon(0 0,0 100%,100% 100%)}
+  .cr-note{font-family:'Space Mono',monospace;font-size:.68rem;color:#6f6f76;margin-top:18px;line-height:1.5}
+
+  .nachhaltig-grid{display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center}
+  .nh-num{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(4.5rem,9vw,8rem);line-height:.86;letter-spacing:-.03em;color:#3fae5a}
+  html.a11y-contrast .nh-num{color:#1e6e34}
+  .nh-lbl{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.1em;color:#7a7a80;margin-top:12px}
+  .nh-copy h2{font-size:clamp(1.75rem,3.2vw,2.6rem);line-height:1.08;margin:0 0 20px;max-width:620px}
+  .nh-copy p{font-size:1.06rem;line-height:1.65;color:#4a4a50;max-width:600px;margin:0}
+
+  .quotes{text-align:center}
+  .quotes-head{max-width:720px;margin:0 auto 56px}
+  .quotes-head h2{font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.02}
+  .quote-stage{max-width:860px;margin:0 auto;min-height:200px}
+  .quote-text{font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:clamp(1.38rem,2.7vw,2.13rem);line-height:1.32;letter-spacing:-.01em;color:var(--ink)}
+  .quote-meta{margin-top:28px;font-family:'Space Mono',monospace;font-size:.8rem;letter-spacing:.06em;color:#8a8a90}
+  .quote-dots{display:flex;justify-content:center;gap:8px;margin-top:30px}
+  .quote-dots button{height:8px;border-radius:4px;border:none;cursor:pointer;padding:0;width:8px;background:#d6d4d0}
+  .quote-dots button[aria-selected="true"]{width:28px;background:var(--red)}
+
+  .standorte-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .standorte-photo{position:relative}
+  .standorte-frame{position:relative;aspect-ratio:3/2;overflow:hidden;border-radius:3px;background:#e2e0dc}
+  .standorte-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .45s cubic-bezier(.16,1,.3,1)}
+  .standorte-frame img.on{opacity:1}
+  .standorte-photo .tri{position:absolute;right:-24px;bottom:-24px;width:110px;height:110px;background:var(--red);clip-path:polygon(100% 0,0 100%,100% 100%)}
+  .ort-cards{display:flex;flex-direction:column;gap:18px}
+  .ort-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:24px 26px;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+  .ort-card:hover{border-color:#c9c7c2}
+  .ort-card[data-active="true"]{border-color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+  .ort-toggle{background:none;border:none;padding:0;margin:0;font:inherit;color:inherit;text-align:left;cursor:pointer;display:block;width:100%}
+  .ort-toggle:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:2px}
+  .ort-card h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.13rem;margin:0 0 8px}
+  .ort-card p{font-size:.94rem;line-height:1.65;color:var(--muted);margin:0}
+  .ort-card a{color:var(--red);text-decoration:none;font-weight:600}
+  .ort-card a:hover{text-decoration:underline}
+  .ort-hint{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.06em;color:#7a7a80;margin-top:16px}
+
+  .kontakt{background:var(--red);color:#fff;position:relative;overflow:hidden}
+  html.a11y-contrast .kontakt{background:#7d0018}
+  .kontakt .deco{position:absolute;left:-50px;bottom:-50px;width:240px;height:240px;border:2px solid rgba(255,255,255,.2);clip-path:polygon(0 0,0 100%,100% 100%)}
+  .kontakt-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .kontakt h2{font-size:clamp(2.1rem,4.6vw,3.9rem);letter-spacing:-.025em}
+  .kontakt-lead{font-size:1.13rem;color:rgba(255,255,255,.9);margin:22px 0 0;max-width:440px;line-height:1.6}
+  .kontakt-direct{display:flex;flex-direction:column;gap:14px;align-items:flex-start;margin-top:34px}
+  .kontakt-direct .mail{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--ink);font-weight:700;font-size:1.06rem;padding:18px 30px;border-radius:2px;text-decoration:none}
+  .kontakt-direct .mail:hover{background:var(--ink);color:#fff}
+  .kontakt-direct .tel{font-family:'Space Mono',monospace;font-size:1.13rem;color:#fff;text-decoration:none;letter-spacing:.02em}
+  .kontakt-direct .fax{font-family:'Space Mono',monospace;font-size:.88rem;color:rgba(255,255,255,.75)}
+  .kform{background:#fff;color:var(--ink);border-radius:4px;padding:36px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+  .kform h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:1.4rem;margin:0 0 22px}
+  .kform .consent{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;line-height:1.5;color:var(--muted);margin:4px 0 20px}
+  .kform .consent input{margin-top:3px;width:16px;height:16px;accent-color:var(--red)}
+  .kform .consent a{color:var(--red)}
+
+  #dn-concierge{position:fixed;right:18px;bottom:18px;z-index:99990;display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid #111112;border-radius:999px;padding:12px 19px 12px 15px;font:600 .81rem/1 'Hanken Grotesk',sans-serif;color:#111112;text-decoration:none;box-shadow:4px 4px 0 rgba(17,17,18,.12);transition:transform .15s ease,box-shadow .15s ease}
+  #dn-concierge:hover{transform:translateY(-2px);box-shadow:5px 6px 0 rgba(227,6,19,.2)}
+  #dn-concierge .dot{width:8px;height:8px;border-radius:50%;background:#E30613;animation:dnPulse 2s infinite}
+  #dn-concierge .arr{color:#E30613;font-weight:700}
+  @keyframes dnPulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  @media (max-width:860px){
+    .hero{padding:36px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero-media{height:300px}
+    .hero-badge{top:14px;right:8px;padding:14px 16px}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:28px 20px;padding:34px 20px}
+    .section{padding:60px 0}
+    .cards4{grid-template-columns:1fr 1fr}
+    .branche-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+    .branche-detail{grid-template-columns:1fr}
+    .branche-copy{padding:32px 24px}
+    .branche-photo{min-height:240px;grid-row:1}
+    .calc-grid{grid-template-columns:1fr;gap:40px}
+    .calc-result{padding:28px 22px}
+    .nachhaltig-grid{grid-template-columns:1fr;gap:24px}
+    .standorte-grid{grid-template-columns:1fr;gap:36px}
+    .kontakt-grid{grid-template-columns:1fr;gap:40px}
+    .kform{padding:26px 20px}
+    #dn-concierge{right:12px;bottom:12px;padding:11px 16px 11px 13px}
+  }
+  @media (max-width:520px){
+    .cards4{grid-template-columns:1fr}
+    .branche-grid{grid-template-columns:1fr 1fr}
+    .branche-tile .cap{font-size:.85rem;padding:20px 10px 10px}
+    .ticks{font-size:.58rem}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<div class="a11y-fab">
+  <button type="button" id="a11yBtn" aria-expanded="false" aria-controls="a11yPanel" aria-label="Barrierefreiheits-Einstellungen öffnen">&#9855;</button>
+  <div class="a11y-panel" id="a11yPanel" role="group" aria-label="Barrierefreiheits-Einstellungen">
+    <h2>Barrierefreiheit</h2>
+    <button type="button" data-a11y="bigtext" aria-pressed="false">Große Schrift <span class="state">Aus</span></button>
+    <button type="button" data-a11y="contrast" aria-pressed="false">Hoher Kontrast <span class="state">Aus</span></button>
+    <button type="button" data-a11y="gray" aria-pressed="false">Graustufen <span class="state">Aus</span></button>
+    <button type="button" data-a11y="noanim" aria-pressed="false">Animationen stoppen <span class="state">Aus</span></button>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <span class="t" id="modalTitle">Dialog</span>
+      <span class="acts">
+        <a class="ext" id="modalExt" href="#" target="_blank" rel="noopener">In neuem Tab öffnen ↗</a>
+        <button type="button" data-close aria-label="Dialog schließen">&#10005;</button>
+      </span>
+    </div>
+    <iframe id="modalFrame" title="Dialog-Inhalt" src="about:blank"></iframe>
+  </div>
+</div>
+
+<header class="site">
+  <div class="nav-bar">
+    <a href="index2.html" aria-label="docunova Startseite"><img src="logo.png" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block"></a>
+    <nav class="nav-desk" aria-label="Hauptnavigation">
+      <div class="nav-item">
+        <a href="#leistungen">Leistungen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+          <a href="#leistungen-mps">Managed Print Services</a>
+          <a href="#leistungen-dms">Dokumentenmanagement (DMS)</a>
+          <a href="#leistungen-service">Service &amp; Support</a>
+        </div></div>
+      </div>
+      <a href="#branchen">Branchen</a>
+      <div class="nav-item">
+        <a href="#leistungen-service">Service</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="#leistungen-service">Service &amp; Support</a>
+          <a href="zaehlerstand.html">Zählerstand melden</a>
+          <a href="stoerung.html">Störungsmeldung</a>
+          <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="#warum">Unternehmen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="#warum">Über uns</a>
+          <a href="#nachhaltigkeit">Nachhaltigkeit</a>
+          <a href="kontakt.html#standorte">Standorte</a>
+          <a href="karriere.html">Karriere</a>
+        </div></div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="shop.html">Shop<span class="shop-badge">bald</span></a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="nav-cta" href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Beratung anfragen">Beratung anfragen</a>
+    </nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="navMobile" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile Navigation">
+    <div class="group">LEISTUNGEN</div>
+    <a href="#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+    <a href="#leistungen-mps">Managed Print Services</a>
+    <a href="#leistungen-dms">Dokumentenmanagement (DMS)</a>
+    <a href="#leistungen-service">Service &amp; Support</a>
+    <a class="big" href="#branchen">Branchen</a>
+    <div class="group">SERVICE</div>
+    <a href="zaehlerstand.html">Zählerstand melden</a>
+    <a href="stoerung.html">Störungsmeldung</a>
+    <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+    <div class="group">UNTERNEHMEN</div>
+    <a href="#warum">Über uns</a>
+    <a href="#nachhaltigkeit">Nachhaltigkeit</a>
+    <a href="kontakt.html#standorte">Standorte</a>
+    <a href="karriere.html">Karriere</a>
+    <a class="big" href="blog.html">Blog</a>
+    <a class="big" href="shop.html">Shop <span class="shop-badge">bald</span></a>
+    <a class="big" href="kontakt.html">Kontakt</a>
+    <a class="cta" href="kontakt.html">Beratung anfragen →</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Document Solutions · seit 1986</p>
+      <h1 class="h-display" id="heroTitle">Dokumente<br>intelligent<br>bewegen.</h1>
+      <p class="hero-sub">Druck, Kopie und Dokumentenmanagement für Unternehmen in der Region Frankfurt — effizient, klimaschonend und persönlich betreut.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Beratung anfragen">Beratung anfragen →</a>
+        <a class="btn-ghost" href="#leistungen">Leistungen entdecken</a>
+      </div>
+      <p class="hero-trust"><b>Herstellerunabhängige Beratung</b><span class="sep" aria-hidden="true"></span><span>98,6 % Verfügbarkeit</span></p>
+    </div>
+    <div class="hero-media">
+      <div class="hero-photo"><img src="team_mufu.webp" alt="Zwei docunova-Mitarbeitende besprechen einen Ausdruck an einem Multifunktionssystem im Büro"></div>
+      <div class="hero-tri" aria-hidden="true"></div>
+      <div class="hero-badge" aria-hidden="true">
+        <div class="num">98,6&nbsp;%</div>
+        <div class="lbl">VERFÜGBARKEIT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats" id="warum" aria-label="docunova in Zahlen">
+  <div class="stats-grid">
+    <div class="stat reveal"><div class="num"><span data-count="35" data-suffix="+">35+</span></div><div class="lbl">JAHRE ERFAHRUNG · SEIT 1986</div></div>
+    <div class="stat reveal"><div class="num"><span data-count="100" data-suffix=" %">100&nbsp;%</span></div><div class="lbl">HERSTELLERUNABHÄNGIG</div></div>
+    <div class="stat reveal"><div class="num red"><span data-count="98.6" data-decimals="1" data-suffix=" %">98,6&nbsp;%</span></div><div class="lbl">VERFÜGBARKEITSQUOTE</div></div>
+    <div class="stat reveal"><div class="num"><span data-count="2">2</span></div><div class="lbl">STANDORTE · ROSBACH &amp; NIDDA</div></div>
+  </div>
+</section>
+
+<section class="section" id="leistungen" aria-labelledby="leistungenTitle">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:54px">
+      <div class="sec-head">
+        <p class="eyebrow">Leistungen</p>
+        <h2 class="h-display" id="leistungenTitle">Druck, Kopie &amp; Dokumente —<br>aus einer Hand.</h2>
+      </div>
+      <p class="sec-intro">Vier Bereiche, ein Ansprechpartner. Von der Hardware über das Konzept bis zum Service vor Ort.</p>
+    </div>
+    <div class="cards4">
+      <div class="card reveal" id="leistungen-druck">
+        <div class="idx">01</div>
+        <h3>Druck- &amp; Multifunktions­systeme</h3>
+        <p>Drucken, kopieren, scannen: vom kompakten Arbeitsplatzgerät bis zum Produktionssystem für hohe Volumen — herstellerunabhängig ausgewählt, schnell und klimaschonend im Betrieb.</p>
+        <a class="more" href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Beratung anfragen">Mehr →</a>
+      </div>
+      <div class="card reveal" id="leistungen-mps">
+        <div class="idx">02</div>
+        <h3>Managed Print Services</h3>
+        <p>Wir analysieren Ihre Druckkosten und senken sie messbar — mit klarem Konzept, transparentem Reporting und auf Wunsch flexibler Miete oder Leasing statt Kapitalbindung.</p>
+        <a class="more" href="#rechner">Einsparung berechnen →</a>
+      </div>
+      <div class="card reveal" id="leistungen-dms">
+        <div class="idx">03</div>
+        <h3>Dokumenten­management (DMS)</h3>
+        <p>Vom Papierstapel zum digitalen Workflow: rechtssichere Archivierung, automatisierte Freigaben und Schnittstellen zu Ihren bestehenden Systemen — passend zu Ihrer Branche.</p>
+        <a class="more" href="#branchen">Branchenlösungen →</a>
+      </div>
+      <div class="card reveal" id="leistungen-service">
+        <div class="idx">04</div>
+        <h3>Service &amp; Support</h3>
+        <p>98,6 % Verfügbarkeit. Eigener Helpdesk, Fernwartung und Technik vor Ort — mit festen Ansprechpartnern statt Callcenter.</p>
+        <div class="links">
+          <a class="more" href="zaehlerstand.html">Zählerstand melden →</a>
+          <a class="more" href="stoerung.html">Störung melden →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft" id="branchen" aria-labelledby="branchenTitle">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:40px">
+      <p class="eyebrow">Branchenlösungen</p>
+      <h2 class="h-display" id="branchenTitle">Ihre Branche. Ihre Lösung.</h2>
+      <p style="font-size:1.06rem;line-height:1.6;color:var(--muted);max-width:520px;margin:18px 0 0">Wählen Sie Ihre Branche — wir zeigen Ihnen, worauf es dort ankommt.</p>
+    </div>
+    <div class="branche-grid reveal" role="tablist" aria-label="Branche wählen" id="brancheGrid"></div>
+    <div class="branche-detail reveal" id="brancheDetail" role="tabpanel" tabindex="0"></div>
+    <p class="bild-hinweis">Symbolbilder, teilweise mit Unterstützung generativer KI erstellt.</p>
+  </div>
+</section>
+
+<section class="section" id="rechner" aria-labelledby="rechnerTitle">
+  <div class="wrap calc-grid">
+    <div class="reveal">
+      <p class="eyebrow">Managed Print Services</p>
+      <h2 class="h-display" id="rechnerTitle" style="font-size:clamp(2rem,4vw,3.4rem);margin-bottom:14px">Was kostet Ihr Druck wirklich?</h2>
+      <p style="font-size:1.06rem;line-height:1.6;color:var(--muted);max-width:440px;margin:0 0 40px">Schätzen Sie Ihr jährliches Einsparpotenzial. Bewegen Sie die Regler — die Rechnung passt sich sofort an.</p>
+      <div class="calc-sliders">
+        <div class="calc-row">
+          <div class="top"><label for="cEmpl">Mitarbeitende</label><output id="cEmplOut" for="cEmpl">20</output></div>
+          <input type="range" id="cEmpl" min="0" max="5" step="1" value="2" aria-describedby="cEmplTicks">
+          <div class="ticks" id="cEmplTicks" aria-hidden="true"></div>
+        </div>
+        <div class="calc-row">
+          <div class="top"><label for="cPpm">Seiten pro Person &amp; Monat</label><output id="cPpmOut" for="cPpm">100</output></div>
+          <input type="range" id="cPpm" min="0" max="6" step="1" value="1" aria-describedby="cPpmTicks">
+          <div class="ticks" id="cPpmTicks" aria-hidden="true"></div>
+        </div>
+        <div class="calc-row">
+          <div class="top"><label for="cColor">Farbanteil</label><output id="cColorOut" for="cColor">15 %</output></div>
+          <input type="range" id="cColor" min="0" max="5" step="1" value="2" aria-describedby="cColorTicks">
+          <div class="ticks" id="cColorTicks" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+    <div class="calc-result reveal">
+      <div class="deco" aria-hidden="true"></div>
+      <div class="in" aria-live="polite">
+        <div class="cr-head">
+          <span class="lbl">ERSPARNIS / JAHR</span>
+          <span class="pct">−<span id="crPct">0</span> %</span>
+        </div>
+        <div class="cr-save"><span id="crSave">0</span> €</div>
+        <div class="cr-sep"></div>
+        <div class="cr-bar-row">
+          <div class="t"><span>Aktuell, ungesteuert</span><span class="v"><span id="crCur">0</span> €</span></div>
+          <div class="cr-bar"><div class="full"></div></div>
+        </div>
+        <div class="cr-bar-row">
+          <div class="t w"><span>Mit docunova MPS</span><span class="v"><span id="crOpt">0</span> €</span></div>
+          <div class="cr-bar"><div class="opt" id="crOptBar" style="width:50%"></div></div>
+        </div>
+        <div class="cr-co2">
+          <span class="tri" aria-hidden="true"></span>
+          <span>≈ <strong style="color:#fff"><span id="crCo2">0</span> kg</strong> weniger CO₂ pro Jahr durch weniger Volumen &amp; effiziente Systemtechnik.</span>
+        </div>
+        <p class="cr-note">Unverbindliche Schätzung. Ihre genaue Analyse erstellen wir kostenfrei vor Ort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft" id="nachhaltigkeit" aria-labelledby="nhTitle">
+  <div class="wrap nachhaltig-grid">
+    <div class="reveal">
+      <div class="nh-num"><span data-count="75" data-suffix=" %">75&nbsp;%</span></div>
+      <div class="nh-lbl">WENIGER ABFALL · LANGLEBIGE TECHNIK</div>
+    </div>
+    <div class="nh-copy reveal">
+      <p class="eyebrow">Nachhaltigkeit</p>
+      <h2 class="h-display" id="nhTitle">Klimaschonend drucken — und dabei sparen.</h2>
+      <p>Wir setzen bewusst auf besonders langlebige Systeme mit robusten Verbrauchskomponenten — die Bildtrommel bleibt oft über die gesamte Lebensdauer im Gerät, nur der Toner wird gewechselt. Das entlastet die Umwelt und senkt spürbar Ihre Betriebskosten. Welcher Hersteller im Detail am besten zu Ihrem Betrieb passt, klären wir in der Beratung — herstellerunabhängig.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section quotes" aria-labelledby="quotesTitle">
+  <div class="wrap">
+    <div class="quotes-head reveal">
+      <p class="eyebrow">Kundenstimmen</p>
+      <h2 class="h-display" id="quotesTitle">„Immer wieder fällt die Entscheidung für docunova."</h2>
+    </div>
+    <div class="quote-stage reveal" id="quoteStage">
+      <blockquote style="margin:0">
+        <p class="quote-text" id="quoteText"></p>
+        <footer class="quote-meta" id="quoteMeta"></footer>
+      </blockquote>
+      <div class="quote-dots" id="quoteDots" role="tablist" aria-label="Kundenstimme wählen"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft" id="standorte" aria-labelledby="standorteTitle">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:46px">
+      <p class="eyebrow">Standorte</p>
+      <h2 class="h-display" id="standorteTitle">Vor Ort in Rosbach &amp; Nidda.</h2>
+    </div>
+    <div class="standorte-grid">
+      <div class="standorte-photo reveal">
+        <div class="standorte-frame" id="ortFrame">
+          <img src="docu3.webp" alt="Firmengebäude der docunova GmbH in Rosbach vor der Höhe" data-ort="0" class="on" loading="lazy">
+          <img src="wolff.webp" alt="Ladengeschäft von Wolff Bürotechnik in Nidda" data-ort="1" loading="lazy">
+        </div>
+        <div class="tri" aria-hidden="true"></div>
+      </div>
+      <div class="reveal">
+        <div class="ort-cards" id="ortCards">
+          <div class="ort-card" data-ort="0" data-active="true">
+            <h3><button type="button" class="ort-toggle" aria-pressed="true">docunova GmbH · Rosbach v. d. Höhe</button></h3>
+            <p>Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+            Tel. <a href="tel:+4960039414-0">06003 9414-0</a> · Fax 06003 9414-24<br>
+            <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+          </div>
+          <div class="ort-card" data-ort="1" data-active="false">
+            <h3><button type="button" class="ort-toggle" aria-pressed="false">Wolff Bürotechnik · Nidda</button></h3>
+            <p>Unser Partner-Standort in der Wetterau — gleiche Leistungen, gleiche Ansprechpartner-Mentalität.</p>
+          </div>
+        </div>
+        <p class="ort-hint">DEUTSCHLANDWEITER SERVICE ÜBER UNSER PARTNERNETZ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section kontakt" id="kontakt" aria-labelledby="kontaktTitle">
+  <div class="deco" aria-hidden="true"></div>
+  <div class="wrap kontakt-grid">
+    <div>
+      <h2 class="h-display" id="kontaktTitle">Sprechen wir<br>über Ihr Büro.</h2>
+      <p class="kontakt-lead">Persönliche Beratung, ehrliche Analyse, schnelle Reaktionszeiten — von Menschen, die Ihre Technik kennen.</p>
+      <div class="kontakt-direct">
+        <a class="mail" href="mailto:info@docunova.de">E-Mail schreiben →</a>
+        <a class="tel" href="tel:+4960039414-0">☎ 06003 9414-0</a>
+        <span class="fax">Fax 06003 9414-24</span>
+      </div>
+    </div>
+    <form class="kform" id="kontaktForm" novalidate
+          data-webhook="https://n8n.top-beraternetzwerk.de/webhook/docunova-kontakt"
+          data-formular="kontakt"
+          data-success="Danke für Ihre Anfrage! Wir melden uns kurzfristig bei Ihnen.">
+      <h3>Beratung anfragen</h3>
+      <div class="form-row2">
+        <div class="form-field">
+          <label for="kfName">Name <span class="form-req">*</span></label>
+          <input type="text" id="kfName" name="name" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="kfFirma">Firma <span class="form-req">*</span></label>
+          <input type="text" id="kfFirma" name="firma" autocomplete="organization" required>
+        </div>
+      </div>
+      <div class="form-row2">
+        <div class="form-field">
+          <label for="kfMail">E-Mail <span class="form-req">*</span></label>
+          <input type="email" id="kfMail" name="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="kfTel">Telefon</label>
+          <input type="tel" id="kfTel" name="telefon" autocomplete="tel">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="kfMsg">Ihre Nachricht <span class="form-req">*</span></label>
+        <textarea id="kfMsg" name="nachricht" rows="4" required></textarea>
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="kfConsent" required>
+        <span>Ich habe die <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage einverstanden. <span class="form-req">*</span></span>
+      </label>
+      <button class="btn" type="submit">Anfrage senden →</button>
+      <div class="form-msg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <img src="logo.png" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block;margin-bottom:20px">
+      <p class="foot-addr">Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+      Tel. <a href="tel:+4960039414-0">06003 9414-0</a><br>
+      Fax 06003 9414-24<br>
+      <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+      <div class="social">
+        <a href="https://www.linkedin.com/company/docunova-gmbh/" target="_blank" rel="noopener" aria-label="docunova bei LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://www.xing.com/pages/docunovagmbh" target="_blank" rel="noopener" aria-label="docunova bei Xing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 0c-.4 0-.6.13-.78.44l-6.6 11.68 4.2 7.72c.17.3.4.44.78.44h3.1c.19 0 .33-.07.4-.2.09-.15.08-.32 0-.5l-4.17-7.63v-.02L21.28.7c.09-.18.1-.35.01-.5-.07-.13-.2-.2-.4-.2H17.8zM3.1 5.12c-.2 0-.34.07-.42.2-.08.15-.07.33.02.5l2 3.45v.02l-3.13 5.53c-.09.17-.09.34 0 .49.07.13.2.2.4.2h3.1c.4 0 .6-.14.78-.45l3.18-5.62-2.03-3.54c-.18-.31-.4-.45-.79-.45H3.1z"/></svg></a>
+        <a href="https://www.facebook.com/docunovagmbh/" target="_blank" rel="noopener" aria-label="docunova bei Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <div class="head">LEISTUNGEN</div>
+      <nav aria-label="Footer Leistungen">
+        <a href="#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+        <a href="#leistungen-mps">Managed Print Services</a>
+        <a href="#leistungen-dms">Dokumentenmanagement</a>
+        <a href="#leistungen-service">Service &amp; Support</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">SERVICE</div>
+      <nav aria-label="Footer Service">
+        <a href="zaehlerstand.html">Zählerstand melden</a>
+        <a href="stoerung.html">Störungsmeldung</a>
+        <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">UNTERNEHMEN</div>
+      <nav aria-label="Footer Unternehmen">
+        <a href="#warum">Über uns</a>
+        <a href="#nachhaltigkeit">Nachhaltigkeit</a>
+        <a href="kontakt.html">Kontakt &amp; Standorte</a>
+        <a href="karriere.html">Karriere</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">RECHTLICHES</div>
+      <nav aria-label="Footer Rechtliches">
+        <a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a>
+        <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a>
+      <a href="#" data-consent-open>Cookie-Einstellungen</a>
+      </nav>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 docunova GmbH · Herstellerunabhängige Bürotechnik-Beratung</span>
+    <span><a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a> · <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a></span>
+  </div>
+</footer>
+
+<a id="dn-concierge" href="index.html" data-rybbit-event="switch_to_chat"><span class="dot" aria-hidden="true"></span>Einfach fragen &mdash; der Concierge antwortet sofort<span class="arr" aria-hidden="true">&rarr;</span></a>
+
+<script src="site.js"></script>
+<script src="consent.js"></script>
+<script>
+(() => {
+  'use strict';
+  const $ = (s, c) => (c || document).querySelector(s);
+  const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+  const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    || document.documentElement.classList.contains('a11y-noanim');
+
+  /* Branchen: Bildraster + Detail */
+  (() => {
+    const branchen = [
+      { label: 'Healthcare', tag: 'KLINIK · PRAXIS', claim: 'Klinik- und Praxisalltag ohne Druckstau.', photo: 'klinik.webp', alt: 'Mitarbeiterin am Empfang einer Arztpraxis arbeitet am Bildschirm', bullets: ['KV-Anschluss & KIS-Schnittstellen, sauber integriert', 'Sichere Druck-Workflows — Schluss mit Fehldrucken', 'Feinstaubarme Systeme fürs Behandlungszimmer'] },
+      { label: 'Logistik & Transport', tag: 'LAGER · VERSAND', claim: 'Etiketten, Ladelisten, Barcodes — millionenfach zuverlässig.', photo: 'logistik.webp', alt: 'Mitarbeiter druckt Versandetiketten an einem Industriedrucker im Lager', bullets: ['Robuste Drucktechnik für den Dauerbetrieb', 'Barcode-, Etiketten- & Ladelisten-Druck', 'Schnittstellen zu Ihrem Warehouse-System'] },
+      { label: 'Handwerk', tag: 'BETRIEB · BAUSTELLE', claim: 'All-in-One fürs Büro hinter der Werkstatt.', photo: 'handwerk.webp', alt: 'Handwerker druckt Auftragsunterlagen im Büro seines Betriebs', bullets: ['Drucken, Scannen, Faxen aus einer Hand', 'Geringe Folgekosten, hohe Druckqualität', 'Unkompliziert — aufstellen und loslegen'] },
+      { label: 'Handel & Industrie', tag: 'BELEG · VOLUMEN', claim: 'Belege, Rechnungen, Volumen — im Griff.', photo: 'handel-industrie.webp', alt: 'Mitarbeiterin prüft gedruckte Belege neben einem Multifunktionssystem', bullets: ['Hohe Druckvolumen ohne Engpässe', 'Rechnungs- & Belegdruck automatisiert', 'Output-Management über mehrere Standorte'] },
+      { label: 'Öffentliche Hand', tag: 'BEHÖRDE · KOMMUNE', claim: 'Sicher, compliant, ausschreibungsfähig.', photo: 'oeffentliche-hand.webp', alt: 'Sachbearbeiter an einem Drucksystem in einem Verwaltungsbüro', bullets: ['Datensicherheit & Zugriffssteuerung', 'Revisionssichere Archivierung', 'Transparente Kosten & klares Reporting'] },
+      { label: 'Vereine & Bildung', tag: 'VEREIN · SCHULE', claim: 'Profi-Technik zum vereinsfreundlichen Tarif.', photo: 'vereine-bildung.webp', alt: 'Person druckt Unterlagen in einem Schulsekretariat', bullets: ['All-in-One Drucken, Scannen, Faxen', 'Niedrige Betriebskosten', 'Persönlicher Service vor Ort'] },
+      { label: 'Kanzleien & Rechtswesen', tag: 'KANZLEI · RECHT', claim: 'Akten, Fristen, Vertraulichkeit — Technik, die mitdenkt.', photo: 'kanzleien.webp', alt: 'Anwältin scannt vertrauliche Dokumente in einer Kanzlei', bullets: ['Vertrauliche Dokumente sicher drucken & scannen', 'Schnelle, verlässliche Systeme für enge Fristen', 'Workflows angepasst an Kanzleisoftware & Aktenprozesse'] }
+    ];
+
+    const grid = $('#brancheGrid');
+    const detail = $('#brancheDetail');
+    if (!grid) return;
+    let active = -1;
+
+    branchen.forEach((b, i) => {
+      const tile = document.createElement('button');
+      tile.type = 'button';
+      tile.className = 'branche-tile';
+      tile.setAttribute('role', 'tab');
+      tile.setAttribute('aria-selected', 'false');
+      tile.id = 'branche-tab-' + i;
+      tile.innerHTML = '<img src="' + b.photo + '" alt="" loading="lazy"><span class="cap">' + b.label + '</span>';
+      tile.addEventListener('click', () => show(i));
+      tile.addEventListener('keydown', e => {
+        let n = null;
+        if (e.key === 'ArrowRight') n = (i + 1) % branchen.length;
+        if (e.key === 'ArrowLeft') n = (i - 1 + branchen.length) % branchen.length;
+        if (e.key === 'Home') n = 0;
+        if (e.key === 'End') n = branchen.length - 1;
+        if (n === null) return;
+        e.preventDefault();
+        tiles[n].focus();
+        show(n);
+      });
+      grid.appendChild(tile);
+    });
+    const tiles = $$('.branche-tile', grid);
+
+    const show = i => {
+      if (i === active) return;
+      active = i;
+      const b = branchen[i];
+      tiles.forEach((t, j) => {
+        const on = j === i;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+      });
+      detail.setAttribute('aria-labelledby', 'branche-tab-' + i);
+      detail.innerHTML =
+        '<div class="branche-copy">' +
+          '<div class="branche-tag">' + b.tag + '</div>' +
+          '<h3>' + b.claim + '</h3>' +
+          '<div class="branche-bullets">' +
+            b.bullets.map(pt => '<div class="b"><span class="tri" aria-hidden="true"></span><span>' + pt + '</span></div>').join('') +
+          '</div>' +
+          '<a class="branche-cta" href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Beratung anfragen">Lösung anfragen →</a>' +
+        '</div>' +
+        '<div class="branche-photo"><img src="' + b.photo + '" alt="' + b.alt + '" loading="lazy"></div>';
+    };
+
+    show(0);
+  })();
+
+  /* Druckkosten-Rechner mit festen Stufen */
+  (() => {
+    const STEPS = {
+      empl: [5, 10, 20, 50, 100, 500],
+      ppm: [50, 100, 200, 500, 750, 1000, 2000],
+      color: [5, 10, 15, 20, 25, 30]
+    };
+    const empl = $('#cEmpl'), ppm = $('#cPpm'), color = $('#cColor');
+    if (!empl) return;
+    const eur = n => Math.round(n).toLocaleString('de-DE');
+
+    const buildTicks = (el, values, suffix) => {
+      el.innerHTML = values.map(v => '<span>' + v + suffix + '</span>').join('');
+    };
+    buildTicks($('#cEmplTicks'), STEPS.empl, '');
+    buildTicks($('#cPpmTicks'), STEPS.ppm, '');
+    buildTicks($('#cColorTicks'), STEPS.color, '%');
+
+    const markTicks = (el, idx) => $$('span', el).forEach((s, i) => s.classList.toggle('on', i === idx));
+
+    const update = () => {
+      const ei = +empl.value, pi = +ppm.value, ci = +color.value;
+      const e = STEPS.empl[ei], p = STEPS.ppm[pi], c = STEPS.color[ci];
+
+      $('#cEmplOut').textContent = e;
+      $('#cPpmOut').textContent = p.toLocaleString('de-DE');
+      $('#cColorOut').textContent = c + ' %';
+      empl.setAttribute('aria-valuetext', e + ' Mitarbeitende');
+      ppm.setAttribute('aria-valuetext', p + ' Seiten pro Person und Monat');
+      color.setAttribute('aria-valuetext', c + ' Prozent Farbanteil');
+      markTicks($('#cEmplTicks'), ei);
+      markTicks($('#cPpmTicks'), pi);
+      markTicks($('#cColorTicks'), ci);
+
+      const pagesM = e * p;
+      const colorP = pagesM * c / 100, monoP = pagesM - colorP;
+      const curM = monoP * 0.029 + colorP * 0.13;
+      const optM = monoP * 0.85 * 0.013 + colorP * 0.85 * 0.07;
+      const saveY = Math.max(0, (curM - optM) * 12);
+      const pct = curM > 0 ? Math.round((1 - optM / curM) * 100) : 0;
+      const co2 = Math.round(pagesM * 0.15 * 12 * 4.6 / 1000);
+
+      $('#crPct').textContent = pct;
+      $('#crSave').textContent = eur(saveY);
+      $('#crCur').textContent = eur(curM * 12);
+      $('#crOpt').textContent = eur(optM * 12);
+      $('#crCo2').textContent = co2.toLocaleString('de-DE');
+      $('#crOptBar').style.width = (curM > 0 ? Math.max(4, (optM / curM) * 100) : 0).toFixed(1) + '%';
+    };
+
+    [empl, ppm, color].forEach(el => el.addEventListener('input', update));
+    update();
+  })();
+
+  /* Kundenstimmen */
+  (() => {
+    const data = [
+      { q: '„Erstklassiger Service. Selbst beim dritten Standortwechsel des Geräts war docunova sofort zur Stelle — reibungslos, professionell, schnell."', a: 'Bestandskunde', r: 'DIN-A3-System' },
+      { q: '„Minutengenau geliefert, nach 15 Minuten betriebsbereit inklusive Funktionsdemo. Genau so muss es sein."', a: 'Geschäftskunde', r: 'Bürodrucker' },
+      { q: '„Seit vielen Jahren Kunde — schnell, verlässlich, unkompliziert. Klare Empfehlung."', a: 'Langzeitkunde', r: 'Service & Wartung' }
+    ];
+    const textEl = $('#quoteText'), metaEl = $('#quoteMeta'), dotsEl = $('#quoteDots'), stage = $('#quoteStage');
+    if (!textEl) return;
+    let idx = 0, timer = null;
+
+    data.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', 'Kundenstimme ' + (i + 1));
+      d.addEventListener('click', () => { show(i); restart(); });
+      dotsEl.appendChild(d);
+    });
+    const dots = $$('button', dotsEl);
+
+    const show = i => {
+      idx = i;
+      textEl.textContent = data[i].q;
+      metaEl.textContent = data[i].a + ' · ' + data[i].r;
+      dots.forEach((d, j) => d.setAttribute('aria-selected', String(j === i)));
+    };
+    const next = () => show((idx + 1) % data.length);
+    const start = () => { if (!reduced() && !timer) timer = setInterval(next, 6000); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    const restart = () => { stop(); start(); };
+
+    stage.addEventListener('mouseenter', stop);
+    stage.addEventListener('mouseleave', start);
+    stage.addEventListener('focusin', stop);
+    stage.addEventListener('focusout', start);
+    show(0);
+    start();
+  })();
+})();
+</script>
+
+</body>
+</html>

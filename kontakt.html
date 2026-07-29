@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt &amp; Standorte — docunova GmbH</title>
+<meta name="description" content="Kontakt zu docunova in Rosbach und Wolff Bürotechnik in Nidda: Anschriften, Telefonnummern und persönliche Beratung für Ihre Büroprozesse.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#f4f1eb">
+<link rel="canonical" href="https://docunova.de/kontakt.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="docunova">
+<meta property="og:url" content="https://docunova.de/kontakt.html">
+<meta property="og:title" content="Kontakt &amp; Standorte — docunova GmbH">
+<meta property="og:description" content="Persönliche Beratung in Rosbach und Nidda — mit direkten Ansprechpartnern für Ihre Büroprozesse.">
+<meta property="og:image" content="https://docunova.de/docu3.webp">
+<meta property="og:image:width" content="1536">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="Standort der docunova GmbH in Rosbach vor der Höhe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kontakt &amp; Standorte — docunova GmbH">
+<meta name="twitter:description" content="Persönliche Beratung in Rosbach und Nidda — mit direkten Ansprechpartnern für Ihre Büroprozesse.">
+<meta name="twitter:image" content="https://docunova.de/docu3.webp">
+<link rel="stylesheet" href="fonts-site.css">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Kontakt und Standorte",
+  "url": "https://docunova.de/kontakt.html",
+  "about": {
+    "@type": "Organization",
+    "@id": "https://docunova.de/#unternehmen",
+    "name": "docunova GmbH",
+    "telephone": "+49 6003 9414-0",
+    "email": "info@docunova.de",
+    "location": [
+      {
+        "@type": "Place",
+        "name": "docunova GmbH",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Raiffeisenstraße 6",
+          "postalCode": "61191",
+          "addressLocality": "Rosbach vor der Höhe",
+          "addressCountry": "DE"
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "Wolff Bürotechnik",
+        "telephone": "+49 6043 4621",
+        "faxNumber": "+49 6043 3090",
+        "url": "https://wolff-buerotechnik.de/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bahnhofstraße 11",
+          "postalCode": "63667",
+          "addressLocality": "Nidda",
+          "addressCountry": "DE"
+        }
+      }
+    ]
+  }
+}
+</script>
+<script>
+(function(){
+  try{
+    var s = JSON.parse(localStorage.getItem('dn-a11y') || '{}');
+    var h = document.documentElement;
+    if(s.bigtext) h.classList.add('a11y-bigtext');
+    if(s.contrast) h.classList.add('a11y-contrast');
+    if(s.gray) h.classList.add('a11y-gray');
+    if(s.noanim) h.classList.add('a11y-noanim');
+  }catch(e){}
+  if(localStorage.getItem('dn-view') === 'chat') document.documentElement.classList.add('view-chat');
+  if(new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embedded');
+})();
+</script>
+<style>
+  /* Im iframe-Popup bleibt nur das Formular übrig */
+  html.embedded .page-head,html.embedded #standorte{display:none}
+  html.embedded .kontakt{background:#fff;color:var(--ink);padding:26px 0 34px}
+  html.embedded .kontakt .deco{display:none}
+  html.embedded .kontakt-grid{grid-template-columns:1fr;gap:22px}
+  html.embedded .kontakt h2{font-size:1.7rem}
+  html.embedded .kontakt-lead{color:var(--muted);font-size:1rem;margin-top:12px}
+  html.embedded .kontakt-direct{flex-direction:row;flex-wrap:wrap;align-items:center;gap:18px;margin-top:16px}
+  html.embedded .kontakt-direct .mail{background:var(--soft);border:1px solid var(--line);padding:11px 18px;font-size:.92rem}
+  html.embedded .kontakt-direct .tel{color:var(--red);font-size:.98rem}
+  html.embedded .kontakt-direct .fax{color:#7a7a80;font-size:.8rem}
+  html.embedded .kform{box-shadow:none;border:1px solid var(--line);padding:24px}
+  html.embedded .wrap{padding:0 22px}
+
+  .page-head{padding:64px 0 10px}
+  .page-head h1{font-size:clamp(2.2rem,5.4vw,3.9rem)}
+  .page-head>p{font-size:1.13rem;line-height:1.65;color:var(--muted);max-width:560px;margin:20px 0 0}
+
+  .section{padding:80px 0}
+  .section.soft{background:var(--soft)}
+
+  .standorte-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .standorte-photo{position:relative}
+  .standorte-frame{position:relative;aspect-ratio:3/2;overflow:hidden;border-radius:3px;background:#e2e0dc}
+  .standorte-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .45s cubic-bezier(.16,1,.3,1)}
+  .standorte-frame img.on{opacity:1}
+  .standorte-photo .tri{position:absolute;right:-24px;bottom:-24px;width:110px;height:110px;background:var(--red);clip-path:polygon(100% 0,0 100%,100% 100%)}
+  .ort-cards{display:flex;flex-direction:column;gap:18px}
+  .ort-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:24px 26px;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+  .ort-card:hover{border-color:#c9c7c2}
+  .ort-card[data-active="true"]{border-color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+  .ort-toggle{background:none;border:none;padding:0;margin:0;font:inherit;color:inherit;text-align:left;cursor:pointer;display:block;width:100%}
+  .ort-toggle:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:2px}
+  .ort-card h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.13rem;margin:0 0 8px}
+  .ort-card p{font-size:.94rem;line-height:1.65;color:var(--muted);margin:0}
+  .ort-card a{color:var(--red);text-decoration:none;font-weight:600}
+  .ort-card a:hover{text-decoration:underline}
+  .ort-hint{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.06em;color:#7a7a80;margin-top:16px}
+
+  .kontakt{background:var(--red);color:#fff;position:relative;overflow:hidden;padding:80px 0}
+  html.a11y-contrast .kontakt{background:#7d0018}
+  .kontakt .deco{position:absolute;left:-50px;bottom:-50px;width:240px;height:240px;border:2px solid rgba(255,255,255,.2);clip-path:polygon(0 0,0 100%,100% 100%)}
+  .kontakt-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .kontakt h2{font-size:clamp(2rem,4.4vw,3.6rem);letter-spacing:-.025em}
+  .kontakt-lead{font-size:1.13rem;color:rgba(255,255,255,.9);margin:22px 0 0;max-width:440px;line-height:1.6}
+  .kontakt-direct{display:flex;flex-direction:column;gap:14px;align-items:flex-start;margin-top:34px}
+  .kontakt-direct .mail{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--ink);font-weight:700;font-size:1.06rem;padding:18px 30px;border-radius:2px;text-decoration:none}
+  .kontakt-direct .mail:hover{background:var(--ink);color:#fff}
+  .kontakt-direct .tel{font-family:'Space Mono',monospace;font-size:1.13rem;color:#fff;text-decoration:none;letter-spacing:.02em}
+  .kontakt-direct .fax{font-family:'Space Mono',monospace;font-size:.88rem;color:rgba(255,255,255,.75)}
+
+  .kform{background:#fff;color:var(--ink);border-radius:4px;padding:36px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+  .kform h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:1.4rem;margin:0 0 22px}
+  .kform .consent{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;line-height:1.5;color:var(--muted);margin:4px 0 20px}
+  .kform .consent input{margin-top:3px;width:16px;height:16px;accent-color:var(--red)}
+  .kform .consent a{color:var(--red)}
+
+  @media (max-width:860px){
+    .page-head{padding:44px 0 6px}
+    .section{padding:52px 0}
+    .standorte-grid{grid-template-columns:1fr;gap:36px}
+    .kontakt-grid{grid-template-columns:1fr;gap:36px}
+    .kform{padding:24px 20px}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<div class="a11y-fab">
+  <button type="button" id="a11yBtn" aria-expanded="false" aria-controls="a11yPanel" aria-label="Barrierefreiheits-Einstellungen öffnen">&#9855;</button>
+  <div class="a11y-panel" id="a11yPanel" role="group" aria-label="Barrierefreiheits-Einstellungen">
+    <h2>Barrierefreiheit</h2>
+    <button type="button" data-a11y="bigtext" aria-pressed="false">Große Schrift <span class="state">Aus</span></button>
+    <button type="button" data-a11y="contrast" aria-pressed="false">Hoher Kontrast <span class="state">Aus</span></button>
+    <button type="button" data-a11y="gray" aria-pressed="false">Graustufen <span class="state">Aus</span></button>
+    <button type="button" data-a11y="noanim" aria-pressed="false">Animationen stoppen <span class="state">Aus</span></button>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <span class="t" id="modalTitle">Dialog</span>
+      <span class="acts">
+        <a class="ext" id="modalExt" href="#" target="_blank" rel="noopener">In neuem Tab öffnen ↗</a>
+        <button type="button" data-close aria-label="Dialog schließen">&#10005;</button>
+      </span>
+    </div>
+    <iframe id="modalFrame" title="Dialog-Inhalt" src="about:blank"></iframe>
+  </div>
+</div>
+
+<header class="site chrome-classic">
+  <div class="nav-bar">
+    <a href="index.html" aria-label="docunova Startseite"><img src="logo.png" width="300" height="94" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block"></a>
+    <nav class="nav-desk" aria-label="Hauptnavigation">
+      <div class="nav-item">
+        <a href="index.html#leistungen">Leistungen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+          <a href="index.html#leistungen-mps">Managed Print Services</a>
+          <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
+          <a href="index.html#leistungen-service">Service &amp; Support</a>
+        </div></div>
+      </div>
+      <a href="index.html#branchen">Branchen</a>
+      <div class="nav-item">
+        <a href="index.html#leistungen-service">Service</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="index.html#leistungen-service">Service &amp; Support</a>
+          <a href="zaehlerstand.html">Zählerstand melden</a>
+          <a href="stoerung.html">Störungsmeldung</a>
+          <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="index.html#warum">Unternehmen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="index.html#warum">Über uns</a>
+          <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+          <a href="#standorte">Standorte</a>
+          <a href="karriere.html">Karriere</a>
+        </div></div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="shop.html">Shop<span class="shop-badge">bald</span></a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="nav-cta" href="#formular">Beratung anfragen</a>
+    </nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="navMobile" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile Navigation">
+    <div class="group">LEISTUNGEN</div>
+    <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+    <a href="index.html#leistungen-mps">Managed Print Services</a>
+    <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
+    <a href="index.html#leistungen-service">Service &amp; Support</a>
+    <a class="big" href="index.html#branchen">Branchen</a>
+    <div class="group">SERVICE</div>
+    <a href="zaehlerstand.html">Zählerstand melden</a>
+    <a href="stoerung.html">Störungsmeldung</a>
+    <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+    <div class="group">UNTERNEHMEN</div>
+    <a href="index.html#warum">Über uns</a>
+    <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+    <a href="#standorte">Standorte</a>
+    <a href="karriere.html">Karriere</a>
+    <a class="big" href="blog.html">Blog</a>
+    <a class="big" href="shop.html">Shop <span class="shop-badge">bald</span></a>
+    <a class="big" href="kontakt.html">Kontakt</a>
+    <a class="cta" href="#formular">Beratung anfragen →</a>
+  </nav>
+</header>
+
+<header class="chat-top chrome-chat">
+  <div class="chat-top-in">
+    <a class="chat-wordmark" href="index.html" aria-label="Zurück zum docunova Concierge">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><polygon points="0,0 0,26 26,26" fill="#E30613"/></svg>
+      <span class="wm-text">
+        <span class="wm-name">docunova</span>
+        <span class="wm-sub">Document Solutions</span>
+      </span>
+    </a>
+    <div class="chat-top-right">
+      <a class="chat-alt" href="index.html">Alles im Überblick →</a>
+      <a class="chat-phone" href="tel:+4960039414-0">06003 9414-0</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="page-head wrap">
+  <p class="eyebrow">Kontakt</p>
+  <h1 class="h-display">Sprechen wir über Ihr Büro.</h1>
+  <p>Persönliche Beratung, ehrliche Analyse, schnelle Reaktionszeiten — von Menschen, die Ihre Technik kennen. Schreiben Sie uns oder kommen Sie einfach vorbei.</p>
+</div>
+
+<section class="section soft" id="standorte" aria-labelledby="standorteTitle">
+  <div class="wrap">
+    <div style="margin-bottom:46px">
+      <p class="eyebrow">Standorte</p>
+      <h2 class="h-display" id="standorteTitle">Vor Ort in Rosbach &amp; Nidda.</h2>
+    </div>
+    <div class="standorte-grid">
+      <div class="standorte-photo">
+        <div class="standorte-frame" id="ortFrame">
+          <img src="docu3.webp" alt="Firmengebäude der docunova GmbH in Rosbach vor der Höhe" width="1536" height="1024" data-ort="0" class="on" loading="lazy" decoding="async">
+          <img src="wolff.webp" alt="Ladengeschäft von Wolff Bürotechnik in Nidda" width="1280" height="960" data-ort="1" loading="lazy" decoding="async">
+        </div>
+        <div class="tri" aria-hidden="true"></div>
+      </div>
+      <div>
+        <div class="ort-cards" id="ortCards">
+          <div class="ort-card" data-ort="0" data-active="true">
+            <h3><button type="button" class="ort-toggle" aria-pressed="true">docunova GmbH · Rosbach v. d. Höhe</button></h3>
+            <p>Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+            Tel. <a href="tel:+4960039414-0">06003 9414-0</a> · Fax 06003 9414-24<br>
+            <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+          </div>
+          <div class="ort-card" data-ort="1" data-active="false">
+            <h3><button type="button" class="ort-toggle" aria-pressed="false">Wolff Bürotechnik · Nidda</button></h3>
+            <p>Bahnhofstraße 11<br>63667 Nidda<br>
+            Tel. <a href="tel:+4960434621">06043/4621</a> · Fax 06043/3090<br>
+            <a href="https://wolff-buerotechnik.de/" target="_blank" rel="noopener">www.wolff-buerotechnik.de ↗</a></p>
+          </div>
+        </div>
+        <p class="ort-hint">DEUTSCHLANDWEITER SERVICE ÜBER UNSER PARTNERNETZ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kontakt" id="formular" aria-labelledby="kontaktTitle">
+  <div class="deco" aria-hidden="true"></div>
+  <div class="wrap kontakt-grid">
+    <div>
+      <h2 class="h-display" id="kontaktTitle">Beratung anfragen</h2>
+      <p class="kontakt-lead">Erzählen Sie uns kurz, worum es geht — wir melden uns kurzfristig mit einem konkreten Vorschlag.</p>
+      <div class="kontakt-direct">
+        <a class="mail" href="mailto:info@docunova.de">info@docunova.de</a>
+        <a class="tel" href="tel:+4960039414-0">☎ 06003 9414-0</a>
+        <span class="fax">Fax 06003 9414-24</span>
+      </div>
+    </div>
+    <form class="kform" id="kontaktForm" novalidate
+          data-webhook="https://n8n.top-beraternetzwerk.de/webhook/docunova-kontakt"
+          data-formular="kontakt"
+          data-success="Danke für Ihre Anfrage! Wir melden uns kurzfristig bei Ihnen.">
+      <h3>Ihre Anfrage</h3>
+      <div class="form-row2">
+        <div class="form-field">
+          <label for="kfName">Name <span class="form-req">*</span></label>
+          <input type="text" id="kfName" name="name" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="kfFirma">Firma <span class="form-req">*</span></label>
+          <input type="text" id="kfFirma" name="firma" autocomplete="organization" required>
+        </div>
+      </div>
+      <div class="form-row2">
+        <div class="form-field">
+          <label for="kfMail">E-Mail <span class="form-req">*</span></label>
+          <input type="email" id="kfMail" name="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="kfTel">Telefon</label>
+          <input type="tel" id="kfTel" name="telefon" autocomplete="tel">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="kfMsg">Ihre Nachricht <span class="form-req">*</span></label>
+        <textarea id="kfMsg" name="nachricht" rows="4" required></textarea>
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="kfConsent" required>
+        <span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage einverstanden. <span class="form-req">*</span></span>
+      </label>
+      <button class="btn" type="submit">Anfrage senden →</button>
+      <div class="form-msg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="site chrome-classic">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <img src="logo.png" width="300" height="94" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block;margin-bottom:20px">
+      <p class="foot-addr">Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+      Tel. <a href="tel:+4960039414-0">06003 9414-0</a><br>
+      Fax 06003 9414-24<br>
+      <a href="mailto:info@docunova.de">info@docunova.de</a><br><br>
+      <strong>Wolff Bürotechnik · Nidda</strong><br>
+      Bahnhofstraße 11 · 63667 Nidda<br>
+      Tel. <a href="tel:+4960434621">06043/4621</a><br>
+      <a href="https://wolff-buerotechnik.de/" target="_blank" rel="noopener">wolff-buerotechnik.de ↗</a></p>
+      <div class="social">
+        <a href="https://www.linkedin.com/company/docunova-gmbh/" target="_blank" rel="noopener" aria-label="docunova bei LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://www.xing.com/pages/docunovagmbh" target="_blank" rel="noopener" aria-label="docunova bei Xing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 0c-.4 0-.6.13-.78.44l-6.6 11.68 4.2 7.72c.17.3.4.44.78.44h3.1c.19 0 .33-.07.4-.2.09-.15.08-.32 0-.5l-4.17-7.63v-.02L21.28.7c.09-.18.1-.35.01-.5-.07-.13-.2-.2-.4-.2H17.8zM3.1 5.12c-.2 0-.34.07-.42.2-.08.15-.07.33.02.5l2 3.45v.02l-3.13 5.53c-.09.17-.09.34 0 .49.07.13.2.2.4.2h3.1c.4 0 .6-.14.78-.45l3.18-5.62-2.03-3.54c-.18-.31-.4-.45-.79-.45H3.1z"/></svg></a>
+        <a href="https://www.facebook.com/docunovagmbh/" target="_blank" rel="noopener" aria-label="docunova bei Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <div class="head">LEISTUNGEN</div>
+      <nav aria-label="Footer Leistungen">
+        <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+        <a href="index.html#leistungen-mps">Managed Print Services</a>
+        <a href="index.html#leistungen-dms">Dokumentenmanagement</a>
+        <a href="index.html#leistungen-service">Service &amp; Support</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">SERVICE</div>
+      <nav aria-label="Footer Service">
+        <a href="zaehlerstand.html">Zählerstand melden</a>
+        <a href="stoerung.html">Störungsmeldung</a>
+        <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">UNTERNEHMEN</div>
+      <nav aria-label="Footer Unternehmen">
+        <a href="index.html#warum">Über uns</a>
+        <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+        <a href="#standorte">Standorte</a>
+        <a href="karriere.html">Karriere</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">RECHTLICHES</div>
+      <nav aria-label="Footer Rechtliches">
+        <a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a>
+        <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a>
+      <a href="index.html?consent=1#cookie-einstellungen">Cookie-Einstellungen</a>
+      </nav>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 docunova GmbH · Herstellerunabhängige Bürotechnik-Beratung</span>
+    <span><a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a> · <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a></span>
+  </div>
+</footer>
+
+<footer class="chat-foot chrome-chat">
+  <div class="chat-foot-in">
+    <div class="cf-col">
+      <div class="cf-wm"><svg viewBox="0 0 26 26" aria-hidden="true"><polygon points="0,0 0,26 26,26" fill="#E30613"/></svg><b>docunova</b></div>
+      <p>Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+      Fon 06003 9414-0<br>Fax 06003 9414-24<br>
+      <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Service</div>
+      <a href="zaehlerstand.html">Zählerstand erfassen</a>
+      <a href="stoerung.html">Störung melden</a>
+      <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">TeamViewer Fernwartung</a>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Standorte</div>
+      <p>Rosbach v. d. Höhe<br><br>Wolff Bürotechnik<br>Bahnhofstraße 11<br>63667 Nidda<br>
+      Fon <a href="tel:+4960434621">06043/4621</a><br>Fax 06043/3090<br>
+      <a href="https://wolff-buerotechnik.de/" target="_blank" rel="noopener">wolff-buerotechnik.de ↗</a></p>
+      <p style="margin-top:8px">Deutschlandweiter Service,<br>Ansprechpartner vor Ort.</p>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Unternehmen</div>
+      <a href="karriere.html">Karriere</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="index.html">Zurück zum Concierge</a>
+    </div>
+  </div>
+  <div class="chat-foot-base">
+    <span>© 2026 docunova GmbH · Wir für Ihr Büro — seit 1986</span>
+    <nav>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    <a href="index.html?consent=1#cookie-einstellungen">Cookie-Einstellungen</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+
+</body>
+</html>
