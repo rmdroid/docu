@@ -433,6 +433,12 @@
   .story-copy.two h2,.story-copy.three h2{
     font-size:clamp(2.1rem,3.6vw,3.75rem);line-height:1.02;max-width:15ch;margin-inline:auto
   }
+  .story-copy.two h2{max-width:none}
+  .story-history{display:block;max-width:15ch;margin-inline:auto}
+  .story-services{
+    display:block;max-width:38ch;margin:clamp(18px,2vw,28px) auto 0;
+    font-size:.48em;font-weight:600;line-height:1.18;letter-spacing:-.025em;color:#4f4a43
+  }
   .story-copy.two .story-kicker,.story-copy.three .story-kicker{margin-bottom:14px}
   .story-copy.three p{max-width:42ch;margin:18px auto 0;font-size:1.05rem}
   .story-visual{
@@ -440,10 +446,37 @@
     width:min(920px,calc((100svh - 330px)*1.777),calc(100vw - 64px));
     margin:0;opacity:0;will-change:transform,opacity
   }
-  .story-visual picture,.story-visual img{display:block;width:100%}
-  .story-visual img{
+  .story-visual picture,.story-visual>img{display:block;width:100%}
+  .story-visual>img{
     aspect-ratio:1672/941;object-fit:cover;border-radius:2px;
     box-shadow:0 24px 65px rgba(72,59,43,.13)
+  }
+  .paper-light{
+    position:absolute;z-index:1;left:49.7%;top:69.8%;width:28%;aspect-ratio:1.65;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse at center,rgba(255,251,232,.88) 0%,rgba(255,248,219,.38) 36%,rgba(255,255,255,0) 74%);
+    mix-blend-mode:screen;opacity:var(--brand-light,0);pointer-events:none;will-change:opacity
+  }
+  .paper-brand{
+    position:absolute;z-index:2;left:49.7%;top:70.8%;width:11.4%;aspect-ratio:300/94;
+    transform:translate(-50%,-50%) rotate(.25deg);
+    opacity:var(--brand-reveal,0);overflow:hidden;mix-blend-mode:multiply;
+    filter:blur(var(--brand-blur,1.1px));
+    pointer-events:none;will-change:opacity,filter
+  }
+  .paper-brand img{
+    display:block;width:100%;height:100%;aspect-ratio:300/94;object-fit:contain;
+    filter:brightness(0);opacity:.72;box-shadow:none;border-radius:0
+  }
+  .paper-brand::before{
+    content:'';position:absolute;z-index:2;left:1.3%;top:23%;width:19.2%;height:59%;
+    background:var(--red);clip-path:polygon(0 0,0 100%,100% 100%);opacity:.88
+  }
+  .paper-brand::after{
+    content:'';position:absolute;z-index:3;top:-45%;bottom:-45%;left:-45%;width:34%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.88),transparent);
+    transform:translateX(var(--brand-x,0%)) rotate(12deg);
+    mix-blend-mode:screen;opacity:var(--brand-light,0);will-change:transform,opacity
   }
   .story-visual figcaption{
     padding-top:13px;text-align:center;font:500 .62rem/1.5 var(--mono);
@@ -456,6 +489,9 @@
     .story{height:285svh}
     .story-copy.two,.story-copy.three{top:15%;width:calc(100vw - 36px)}
     .story-copy.two h2,.story-copy.three h2{font-size:clamp(1.75rem,8.2vw,2.35rem);max-width:14ch}
+    .story-copy.two h2{max-width:none}
+    .story-history{max-width:13ch}
+    .story-services{max-width:28ch;font-size:.62em;margin-top:16px;line-height:1.25}
     .story-copy.three p{font-size:.92rem;line-height:1.5;margin-top:13px}
     .story-visual{top:62%;width:calc(100vw - 32px)}
     .story-visual figcaption{font-size:.5rem;letter-spacing:.08em;padding-top:9px}
@@ -764,12 +800,19 @@
 
       <div class="story-copy two" id="storyTwo">
         <p class="story-kicker">Nah. Erfahren. Herstellerunabhängig.</p>
-        <h2>Seit 1986 halten wir Büros in der Region Frankfurt am Laufen — Drucken &amp; Kopieren, Dokumente, Kommunikation.</h2>
+        <h2>
+          <span class="story-history">Seit 1986 halten wir Büros in der Region Frankfurt am Laufen.</span>
+          <span class="story-services">Drucken &amp; Kopieren, Dokumentenmanagement und sämtliche Bürokommunikation.</span>
+        </h2>
       </div>
 
       <figure class="story-visual" id="storyVisual">
         <img src="docunova-prozess-hero.webp" alt="Heller Arbeitsplatz mit Tablet, Dokument und kompaktem Ausgabegerät, verbunden durch eine feine rote Prozesslinie" width="1672" height="941" fetchpriority="high" decoding="async">
-        <figcaption>Drucken &amp; Kopieren&nbsp;&nbsp;·&nbsp;&nbsp;Dokumente&nbsp;&nbsp;·&nbsp;&nbsp;Kommunikation</figcaption>
+        <span class="paper-light" aria-hidden="true"></span>
+        <span class="paper-brand" aria-hidden="true">
+          <img src="logo.png" width="300" height="94" alt="">
+        </span>
+        <figcaption>Drucken &amp; Kopieren&nbsp;&nbsp;·&nbsp;&nbsp;Dokumentenmanagement&nbsp;&nbsp;·&nbsp;&nbsp;Bürokommunikation</figcaption>
       </figure>
 
       <div class="story-copy three" id="storyThree">
@@ -1169,6 +1212,13 @@
       const zoom=clamp((p-.18)/.5);
       visual.style.opacity=String(visualIn*(1-visualOut));
       visual.style.transform=`translate(-50%,-50%) scale(${.97+zoom*.055})`;
+      const brandReveal=clamp((p-.245)/.105);
+      const brandSweep=clamp((p-.27)/.18);
+      const brandLight=Math.sin(brandSweep*Math.PI)*.72;
+      visual.style.setProperty('--brand-reveal',brandReveal.toFixed(4));
+      visual.style.setProperty('--brand-blur',`${((1-brandReveal)*1.1).toFixed(2)}px`);
+      visual.style.setProperty('--brand-x',`${(brandSweep*430).toFixed(1)}%`);
+      visual.style.setProperty('--brand-light',Math.max(0,brandLight).toFixed(4));
 
       const twoIn=clamp((p-.18)/.1),twoOut=clamp((p-.39)/.1);
       two.style.opacity=String(twoIn*(1-twoOut));
