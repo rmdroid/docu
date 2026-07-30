@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://docunova.de/zaehlerstand.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts-site.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=20260729-2">
 <script>
 (function(){
   try{
@@ -159,7 +159,14 @@
   <h1>Zählerstand melden</h1>
   <p>Der schnellste Weg, uns Ihren aktuellen Zählerstand mitzuteilen. Alternativ erreichen Sie uns telefonisch unter <a href="tel:+4960039414-0" style="color:#D60A2E">06003 9414-0</a>.</p>
 
-  <form id="zForm" style="margin-top:36px">
+  <form id="zForm" style="margin-top:36px" novalidate
+        data-webhook="https://n8n.docunova.de/webhook/Webseite"
+        data-formular="zaehlerstand"
+        data-success="Danke! Ihr Zählerstand wurde übermittelt.">
+    <div class="form-hp" aria-hidden="true">
+      <label for="zWebsite">Website</label>
+      <input type="text" id="zWebsite" name="website" tabindex="-1" autocomplete="off" data-honeypot>
+    </div>
     <div class="row2">
       <div class="field">
         <label for="kdnr">Kundennummer <span class="req">*</span></label>
@@ -203,7 +210,7 @@
       <textarea id="notiz" name="anmerkung" rows="3"></textarea>
     </div>
     <button type="submit" id="submitBtn">Zählerstand senden →</button>
-    <div id="msg"></div>
+    <div id="msg" class="msg" role="status"></div>
   </form>
 </main>
 
@@ -299,49 +306,7 @@
   </div>
 </footer>
 
-<script>
-(() => {
-  const WEBHOOK = 'https://n8n.top-beraternetzwerk.de/webhook/docunova-zaehlerstand';
-  const form = document.getElementById('zForm');
-  const btn = document.getElementById('submitBtn');
-  const msg = document.getElementById('msg');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Wird gesendet …';
-    msg.className = ''; msg.textContent = '';
-
-    const data = Object.fromEntries(new FormData(form).entries());
-    data.formular = 'zaehlerstand';
-    data.zeitpunkt = new Date().toISOString();
-
-    try {
-      const ctrl = new AbortController();
-      const to = setTimeout(() => ctrl.abort(), 15000);
-      const res = await fetch(WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-        signal: ctrl.signal,
-      });
-      clearTimeout(to);
-      if (!res.ok) throw new Error('bad status');
-      msg.className = 'ok';
-      msg.textContent = 'Danke! Ihr Zählerstand wurde übermittelt.';
-      form.reset();
-    } catch {
-      msg.className = 'err';
-      msg.textContent = 'Die Übermittlung hat gerade nicht geklappt. Bitte rufen Sie uns unter 06003 9414-0 an oder schreiben Sie an info@docunova.de.';
-    } finally {
-      btn.disabled = false;
-      btn.textContent = 'Zählerstand senden →';
-    }
-  });
-})();
-</script>
-
-<script src="site.js"></script>
+<script src="site.js?v=20260729-3"></script>
 
 </body>
 </html>

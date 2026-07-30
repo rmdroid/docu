@@ -210,20 +210,68 @@
         if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
         if (box) { box.className = box.className.replace(/\s*(ok|err)\b/g, ''); box.textContent = ''; }
 
+        const honeypot = $('[data-honeypot]', form);
+        if (honeypot && honeypot.value.trim()) {
+          if (box) {
+            box.classList.add('ok');
+            box.textContent = form.dataset.success || 'Danke! Ihre Nachricht ist bei uns eingegangen.';
+          }
+          form.reset();
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          return;
+        }
+
         const data = Object.fromEntries(new FormData(form).entries());
+        delete data.website;
         data.formular = form.dataset.formular || 'anfrage';
+        const subjects = {
+          kontakt_startseite: 'Neue Kontaktanfrage über die Startseite',
+          kontaktseite: 'Neue Kontaktanfrage über die Kontaktseite',
+          zaehlerstand: 'Neue Zählerstandsmeldung',
+          service_stoerung: 'Neue Störungs- und Serviceanfrage'
+        };
+        const messageByForm = {
+          zaehlerstand: [
+            `Kundennummer: ${data.kundennummer || '—'}`,
+            `Gerätestandort: ${data.standort || '—'}`,
+            `Seriennummer: ${data.seriennummer || '—'}`,
+            `Zählerstand Schwarz-Weiß: ${data.zaehlerSW || '—'}`,
+            `Zählerstand Farbe: ${data.zaehlerFarbe || '—'}`,
+            `Anmerkung: ${data.anmerkung || '—'}`
+          ].join('\n'),
+          service_stoerung: [
+            `Kundennummer: ${data.kundennummer || '—'}`,
+            `Gerätestandort: ${data.standort || '—'}`,
+            `Seriennummer / Modell: ${data.modell || '—'}`,
+            `Dringlichkeit: ${data.dringlichkeit || '—'}`,
+            `Fehlercode: ${data.fehlercode || '—'}`,
+            `Fehlerbeschreibung: ${data.beschreibung || '—'}`
+          ].join('\n')
+        };
+        data.event = 'website_form_submission';
+        data.subject = subjects[data.formular] || 'Neue Anfrage über die Website';
+        data.betreff = data.subject;
+        data.message = messageByForm[data.formular] || data.nachricht || data.beschreibung || data.anmerkung || '';
+        data.nachricht = data.nachricht || data.message;
+        data.sender_name = data.name || '';
+        data.sender_email = data.email || '';
+        data.sender_phone = data.telefon || '';
+        data.user = data.sender_name;
+        data.absender = [data.sender_name, data.sender_email || data.sender_phone].filter(Boolean).join(' · ');
+        data.from = { name: data.sender_name, email: data.sender_email };
+        data.quelle = window.location.pathname || '/';
         data.zeitpunkt = new Date().toISOString();
 
+        let to;
         try {
           const ctrl = new AbortController();
-          const to = setTimeout(() => ctrl.abort(), 15000);
+          to = setTimeout(() => ctrl.abort(), 15000);
           const res = await fetch(form.dataset.webhook, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
             signal: ctrl.signal
           });
-          clearTimeout(to);
           if (!res.ok) throw new Error('bad status');
           if (box) {
             box.classList.add('ok');
@@ -236,6 +284,7 @@
             box.textContent = 'Die Übermittlung hat gerade nicht geklappt. Bitte rufen Sie uns unter 06003 9414-0 an oder schreiben Sie an info@docunova.de.';
           }
         } finally {
+          clearTimeout(to);
           if (btn) { btn.disabled = false; btn.textContent = label; }
         }
       });

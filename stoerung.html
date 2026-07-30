@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://docunova.de/stoerung.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts-site.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=20260729-2">
 <script>
 (function(){
   try{
@@ -161,7 +161,14 @@
   <p>Beschreiben Sie kurz das Problem — unser Technik-Team meldet sich zeitnah bei Ihnen.</p>
   <div class="urgent-note">Bei einem dringenden Ausfall im laufenden Betrieb erreichen Sie uns schneller telefonisch: <a href="tel:+4960039414-0" style="color:#D60A2E">06003 9414-0</a>.</div>
 
-  <form id="sForm">
+  <form id="sForm" novalidate
+        data-webhook="https://n8n.docunova.de/webhook/Webseite"
+        data-formular="service_stoerung"
+        data-success="Danke! Ihre Störungsmeldung ist bei uns eingegangen.">
+    <div class="form-hp" aria-hidden="true">
+      <label for="sWebsite">Website</label>
+      <input type="text" id="sWebsite" name="website" tabindex="-1" autocomplete="off" data-honeypot>
+    </div>
     <div class="row2">
       <div class="field">
         <label for="kdnr">Kundennummer <span class="req">*</span></label>
@@ -208,7 +215,7 @@
       <input id="tel" name="telefon" type="tel">
     </div>
     <button type="submit" id="submitBtn">Störung melden →</button>
-    <div id="msg"></div>
+    <div id="msg" class="msg" role="status"></div>
   </form>
 </main>
 
@@ -304,49 +311,7 @@
   </div>
 </footer>
 
-<script>
-(() => {
-  const WEBHOOK = 'https://n8n.top-beraternetzwerk.de/webhook/docunova-stoerung';
-  const form = document.getElementById('sForm');
-  const btn = document.getElementById('submitBtn');
-  const msg = document.getElementById('msg');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Wird gesendet …';
-    msg.className = ''; msg.textContent = '';
-
-    const data = Object.fromEntries(new FormData(form).entries());
-    data.formular = 'stoerung';
-    data.zeitpunkt = new Date().toISOString();
-
-    try {
-      const ctrl = new AbortController();
-      const to = setTimeout(() => ctrl.abort(), 15000);
-      const res = await fetch(WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-        signal: ctrl.signal,
-      });
-      clearTimeout(to);
-      if (!res.ok) throw new Error('bad status');
-      msg.className = 'ok';
-      msg.textContent = 'Danke! Ihre Störungsmeldung ist bei uns eingegangen.';
-      form.reset();
-    } catch {
-      msg.className = 'err';
-      msg.textContent = 'Die Übermittlung hat gerade nicht geklappt. Bitte rufen Sie uns unter 06003 9414-0 an oder schreiben Sie an info@docunova.de.';
-    } finally {
-      btn.disabled = false;
-      btn.textContent = 'Störung melden →';
-    }
-  });
-})();
-</script>
-
-<script src="site.js"></script>
+<script src="site.js?v=20260729-3"></script>
 
 </body>
 </html>

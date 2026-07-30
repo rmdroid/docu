@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="Persönliche Beratung in Rosbach und Nidda — mit direkten Ansprechpartnern für Ihre Büroprozesse.">
 <meta name="twitter:image" content="https://docunova.de/docu3.webp?v=20260729">
 <link rel="stylesheet" href="fonts-site.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=20260729-2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -312,10 +312,14 @@
       </div>
     </div>
     <form class="kform" id="kontaktForm" novalidate
-          data-webhook="https://n8n.top-beraternetzwerk.de/webhook/docunova-kontakt"
-          data-formular="kontakt"
+          data-webhook="https://n8n.docunova.de/webhook/Webseite"
+          data-formular="kontaktseite"
           data-success="Danke für Ihre Anfrage! Wir melden uns kurzfristig bei Ihnen.">
       <h3>Ihre Anfrage</h3>
+      <div class="form-hp" aria-hidden="true">
+        <label for="kfWebsite">Website</label>
+        <input type="text" id="kfWebsite" name="website" tabindex="-1" autocomplete="off" data-honeypot>
+      </div>
       <div class="form-row2">
         <div class="form-field">
           <label for="kfName">Name <span class="form-req">*</span></label>
@@ -341,7 +345,7 @@
         <textarea id="kfMsg" name="nachricht" rows="4" required></textarea>
       </div>
       <label class="consent">
-        <input type="checkbox" id="kfConsent" required>
+        <input type="checkbox" id="kfConsent" name="datenschutz_zugestimmt" value="ja" required>
         <span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage einverstanden. <span class="form-req">*</span></span>
       </label>
       <button class="btn" type="submit">Anfrage senden →</button>
@@ -450,7 +454,7 @@
   </div>
 </footer>
 
-<script src="site.js"></script>
+<script src="site.js?v=20260729-3"></script>
 
 </body>
 </html>

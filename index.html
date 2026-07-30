@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="Drucken &amp; Kopieren, Dokumente und Kommunikation — persönlich optimiert, seit 1986.">
 <meta name="twitter:image" content="https://docunova.de/docunova-prozess-hero.webp">
 <link rel="stylesheet" href="fonts-site.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=20260729-2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -198,6 +198,8 @@
   .chat-lead{padding:60px 58px 52px;text-align:center}
   .chat-lead h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.8rem);letter-spacing:-.04em;line-height:1.02;margin:0 auto 18px;max-width:18ch}
   .chat-lead>p{font-size:1rem;line-height:1.6;color:#5c5c58;margin:0 auto 32px;max-width:58ch}
+  .chat-lead>.ai-disclosure{max-width:720px;margin:-10px auto 20px;padding:12px 15px;border:1px solid #d8d5cf;border-radius:3px;background:#f5f3ee;color:#555;text-align:left;font:500 .68rem/1.55 var(--mono);letter-spacing:.025em}
+  .ai-disclosure strong{color:#111112}
   .ask{width:100%;max-width:720px;margin:auto;display:flex;background:#fff;border:1.5px solid #111112;border-radius:4px;box-shadow:4px 5px 0 rgba(17,17,18,.11)}
   .ask:focus-within{box-shadow:4px 5px 0 rgba(214,10,46,.25)}
   .ask input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:19px 10px 19px 21px;font:1rem/1.35 'Hanken Grotesk',sans-serif;color:#111112}
@@ -209,6 +211,7 @@
   .chips{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:24px auto 0;max-width:780px}
   .chip{border:1px solid #d8d5cf;background:transparent;color:#56565b;border-radius:999px;padding:9px 14px;font:500 .7rem/1.25 var(--mono);cursor:pointer}
   .chip:hover{border-color:#111112;color:#111112;background:#fff}
+  .chip:disabled{opacity:.42;cursor:not-allowed;pointer-events:none}
   .chat-assurance{margin:31px 0 0;font:500 .64rem/1.5 var(--mono);letter-spacing:.08em;color:#858580}
   .chat-assurance strong{color:#444}
 
@@ -496,6 +499,7 @@
     .story-visual{top:62%;width:calc(100vw - 32px)}
     .story-visual figcaption{font-size:.5rem;letter-spacing:.08em;padding-top:9px}
     .story-chat-live .chat-lead>p{font-size:.9rem;margin-bottom:22px}
+    .story-chat-live .chat-lead>.ai-disclosure{margin:-3px auto 18px;padding:10px 12px;font-size:.62rem;line-height:1.5}
     .story-chat-live .chips{max-height:92px;overflow:hidden}
     .story-chat-live .chat-assurance{margin-top:20px}
   }
@@ -696,6 +700,11 @@
   #dn-concierge.is-visible:hover{transform:translateY(-2px)}
 
 </style>
+<script
+  src="https://analyse.docunova.de/api/script.js"
+  data-site-id="3eac28be9c79"
+  defer
+></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -827,6 +836,7 @@
             <p class="eyebrow" style="margin-bottom:14px">Jetzt direkt fragen</p>
             <h3>Sagen Sie uns, was Ihr Büro aufhält.</h3>
             <p>Drucken &amp; Kopieren, Dokumentenmanagement oder Service: Eine kurze Beschreibung genügt für den ersten sinnvollen nächsten Schritt.</p>
+            <p class="ai-disclosure" role="note"><strong>KI-gestützter docunova Assistent.</strong> Sie kommunizieren mit einem KI-System. Die Antworten werden automatisch erzeugt und können Fehler enthalten. Verbindliche Auskünfte erhalten Sie persönlich von docunova.</p>
             <form class="ask" id="askHero">
               <input type="text" id="inputHero" placeholder="Zum Beispiel: Drucken & Kopieren kostet uns zu viel …" autocomplete="off" aria-label="Ihre Frage an docunova">
               <button type="submit" aria-label="Frage senden">
@@ -834,7 +844,7 @@
               </button>
             </form>
             <div class="chips" id="chipsHero" role="list"></div>
-            <p class="chat-assurance"><strong>Direkter Ansprechpartner statt Callcenter.</strong> Antwort in Minuten — Rückruf am selben Tag.</p>
+            <p class="chat-assurance"><strong>Verbindliches klären wir persönlich.</strong> 06003 9414-0</p>
           </div>
 
           <section class="protocol" id="protocol" aria-label="Gesprächsprotokoll">
@@ -849,7 +859,7 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
                 </button>
               </form>
-              <p class="dock-hint">PROTOTYP — VERBINDLICHES KLÄREN WIR PERSÖNLICH: 06003 9414-0</p>
+              <p class="dock-hint">KI-GESTÜTZTER ASSISTENT · VERBINDLICHES KLÄREN WIR PERSÖNLICH: 06003 9414-0</p>
             </div>
           </section>
         </div>
@@ -1075,10 +1085,14 @@
       </div>
     </div>
     <form class="kform" id="kontaktForm" novalidate
-          data-webhook="https://n8n.top-beraternetzwerk.de/webhook/docunova-kontakt"
-          data-formular="kontakt"
+          data-webhook="https://n8n.docunova.de/webhook/Webseite"
+          data-formular="kontakt_startseite"
           data-success="Danke für Ihre Anfrage! Wir melden uns kurzfristig bei Ihnen.">
       <h3>Beratung anfragen</h3>
+      <div class="form-hp" aria-hidden="true">
+        <label for="kfWebsite">Website</label>
+        <input type="text" id="kfWebsite" name="website" tabindex="-1" autocomplete="off" data-honeypot>
+      </div>
       <div class="form-row2">
         <div class="form-field">
           <label for="kfName">Name <span class="form-req">*</span></label>
@@ -1104,7 +1118,7 @@
         <textarea id="kfMsg" name="nachricht" rows="4" required></textarea>
       </div>
       <label class="consent">
-        <input type="checkbox" id="kfConsent" required>
+        <input type="checkbox" id="kfConsent" name="datenschutz_zugestimmt" value="ja" required>
         <span>Ich habe die <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage einverstanden. <span class="form-req">*</span></span>
       </label>
       <button class="btn" type="submit">Anfrage senden →</button>
@@ -1181,7 +1195,7 @@
   <span class="arr" aria-hidden="true">&uarr;</span>
 </a>
 
-<script src="site.js"></script>
+<script src="site.js?v=20260729-3"></script>
 <script>
 (() => {
   'use strict';
@@ -1251,9 +1265,26 @@
 
   /* Integrierter Concierge */
   (() => {
-    const CONFIG={webhookEnabled:false,webhook:'https://n8n.top-beraternetzwerk.de/webhook/multiagent',freeQuestions:2};
+    const CONFIG={webhookEnabled:true,webhook:'https://n8n.docunova.de/webhook/chat',freeQuestions:2,maxQuestions:10,responseTimeoutMs:75000};
+    const FORM_WEBHOOK='https://n8n.docunova.de/webhook/Webseite';
     const shell=$('#chatShell'),log=$('#log');if(!shell||!log)return;
-    let pending=false,noticeShown=false,freeAsked=0,formShown=false;
+    let pending=false,noticeShown=false,freeAsked=0,formShown=false,limitShown=false;
+    const createSessionId=()=>{
+      try{
+        let id=sessionStorage.getItem('dn-chat-session');
+        if(!id){
+          id='dn-'+(crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+'-'+Math.random().toString(36).slice(2));
+          sessionStorage.setItem('dn-chat-session',id);
+        }
+        return id;
+      }catch{
+        return 'dn-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);
+      }
+    };
+    const sessionId=createSessionId();
+    let questionCount=0;
+    try{questionCount=Math.max(0,parseInt(sessionStorage.getItem('dn-chat-count')||'0',10)||0)}catch{}
+    const storeQuestionCount=()=>{try{sessionStorage.setItem('dn-chat-count',String(questionCount))}catch{}};
     $('#protoDate').textContent=new Date().toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
     const CHIPS=['Was kostet Drucken & Kopieren wirklich?','Unser Leasingvertrag läuft aus','Papierakten digitalisieren','DMS für unsere Praxis','Störung — wir brauchen einen Techniker'];
     CHIPS.forEach(q=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=q;b.addEventListener('click',()=>submit(q));$('#chipsHero').appendChild(b)});
@@ -1271,12 +1302,13 @@
     const eur=n=>Math.round(n).toLocaleString('de-DE')+' €';
 
     const contactCard=(prefill='')=>{
-      const c=document.createElement('div');c.className='chat-card';c.innerHTML=`<div class="chat-card-head"><span>Persönlich weiter</span><small>Antwort am selben Werktag</small></div><div class="chat-card-body"><form class="chat-form"><input name="firma" placeholder="Firma" required><input name="name" placeholder="Ihr Name" required><input name="kontakt" placeholder="E-Mail oder Telefonnummer" required><textarea name="thema" placeholder="Ihr Thema">${prefill}</textarea><button class="mini-btn red" type="submit">Anfrage senden</button></form><div class="chat-actions"><a class="mini-btn ghost" href="tel:+4960039414-0">Direkt anrufen: 06003 9414-0</a></div></div>`;
-      const form=$('form',c);form.addEventListener('submit',async e=>{
+      const c=document.createElement('div');c.className='chat-card';c.innerHTML=`<div class="chat-card-head"><span>Persönlich weiter</span><small>Direkter Kontakt zu docunova</small></div><div class="chat-card-body"><form class="chat-form" data-webhook="${FORM_WEBHOOK}" data-formular="chat_kontakt"><div class="form-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" data-honeypot></label></div><input name="firma" placeholder="Firma" required><input name="name" placeholder="Ihr Name" required><input name="kontakt" placeholder="E-Mail oder Telefonnummer" required><textarea name="thema" placeholder="Ihr Thema"></textarea><button class="mini-btn red" type="submit">Anfrage senden</button></form><div class="chat-actions"><a class="mini-btn ghost" href="tel:+4960039414-0">Direkt anrufen: 06003 9414-0</a></div></div>`;
+      const form=$('form',c);$('textarea',form).value=prefill;form.addEventListener('submit',async e=>{
         e.preventDefault();if(!form.reportValidity())return;const btn=$('button',form);btn.disabled=true;btn.textContent='Wird gesendet …';
-        const data=Object.fromEntries(new FormData(form).entries());data.formular='chat-kontakt-hybrid';data.zeitpunkt=new Date().toISOString();let ok=false;
-        try{const ctrl=new AbortController(),to=setTimeout(()=>ctrl.abort(),15000);const res=await fetch('https://n8n.top-beraternetzwerk.de/webhook/docunova-kontakt',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:ctrl.signal});clearTimeout(to);ok=res.ok}catch(e){}
-        $('.chat-card-body',c).innerHTML=ok?'<div class="chat-ok"><b>Angekommen.</b> Ein fester Ansprechpartner meldet sich am selben Werktag.</div>':'<div class="chat-ok"><b>Das hat gerade nicht geklappt.</b> Bitte rufen Sie uns unter 06003 9414-0 an oder schreiben Sie an info@docunova.de.</div>';scroll();
+        const honeypot=$('[data-honeypot]',form);if(honeypot&&honeypot.value.trim()){form.reset();$('.chat-card-body',c).innerHTML='<div class="chat-ok"><b>Angekommen.</b> Ein Ansprechpartner meldet sich bei Ihnen.</div>';scroll();return}
+        const data=Object.fromEntries(new FormData(form).entries());delete data.website;data.formular=form.dataset.formular;data.event='website_form_submission';data.subject='Neue Anfrage aus dem Website-Chat';data.betreff=data.subject;data.message=data.thema||'';data.nachricht=data.message;data.sender_name=data.name||'';data.sender_email=(data.kontakt||'').includes('@')?data.kontakt:'';data.sender_phone=data.sender_email?'':(data.kontakt||'');data.user=data.sender_name;data.absender=[data.sender_name,data.kontakt].filter(Boolean).join(' · ');data.from={name:data.sender_name,email:data.sender_email};data.chat_session_id=sessionId;data.question_number=questionCount;data.source='docunova_webchat_contact';data.quelle=window.location.pathname||'/';data.zeitpunkt=new Date().toISOString();let ok=false;let to;
+        try{const ctrl=new AbortController();to=setTimeout(()=>ctrl.abort(),15000);const res=await fetch(form.dataset.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:ctrl.signal});ok=res.ok}catch(e){}finally{clearTimeout(to)}
+        $('.chat-card-body',c).innerHTML=ok?'<div class="chat-ok"><b>Angekommen.</b> Ein Ansprechpartner meldet sich bei Ihnen.</div>':'<div class="chat-ok"><b>Das hat gerade nicht geklappt.</b> Bitte rufen Sie uns unter 06003 9414-0 an oder schreiben Sie an info@docunova.de.</div>';scroll();
       });return c;
     };
     const calcCard=()=>{
@@ -1284,21 +1316,88 @@
       const sliders=$$('input[type=range]',c),update=()=>{const v={};sliders.forEach(s=>{v[s.dataset.k]=+s.value;s.closest('.slider-row').querySelector('output').textContent=s.dataset.k==='fa'?s.value+' %':s.value});const pages=v.ma*v.pp*12,col=pages*v.fa/100,bw=pages-col,now=bw*.02+col*.14,managed=(bw*.012+col*.08)*.88;$('[data-out]',c).textContent=eur(now-managed);$('[data-detail]',c).textContent=`Heute ca. ${eur(now)} / Jahr · mit Managed Print ca. ${eur(managed)} / Jahr.`;c.dataset.summary=`${v.ma} Mitarbeitende, ${v.pp} Seiten, ${v.fa}% Farbe`};sliders.forEach(s=>s.addEventListener('input',update));update();$('[data-act]',c).addEventListener('click',()=>addBot('Gern — mit drei Angaben melden wir uns mit einer belastbaren Rechnung zurück.',{cards:[()=>contactCard(c.dataset.summary)]}));return c;
     };
     const callbackCard=()=>contactCard('Bitte um Rückruf');
+    const showQuestionLimit=()=>{
+      if(limitShown)return;
+      limitShown=true;
+      addBot('Zehn Fragen sind beantwortet. Für eine verlässliche weitere Einschätzung übernehmen wir jetzt gern persönlich.',{cards:[()=>contactCard('Ich möchte das Gespräch mit docunova fortsetzen.')]});
+      ['#inputHero','#inputDock'].forEach(id=>{const input=$(id);if(input){input.disabled=true;input.placeholder='Bitte wenden Sie sich direkt an docunova'}});
+      ['#askHero button','#askDock button'].forEach(id=>{const button=$(id);if(button)button.disabled=true});
+      $$('.chip',shell).forEach(chip=>chip.disabled=true);
+      pending=false;
+    };
+    const completeTurn=()=>{pending=false;if(questionCount>=CONFIG.maxQuestions)showQuestionLimit()};
     const INTENTS=[
-      {match:/(kost|preis|teuer|spar|druckkosten|mps|managed print|drucken|kopieren)/i,reply:'Die meisten Büros kennen ihre tatsächlichen Kosten fürs Drucken & Kopieren nicht. Schieben Sie kurz die drei Regler — dann sehen Sie sofort eine realistische Größenordnung:',cards:[calcCard],followups:['Unser Leasingvertrag läuft aus','Papierakten digitalisieren']},
-      {match:/(leasing|vertrag|miete|kündig|finanzier|laufzeit)/i,reply:'Ein guter Zeitpunkt: Die wichtigsten Weichen stellt man vor Vertragsende. Wir prüfen kostenfrei Restlaufzeit, tatsächlichen Bedarf und Wechselpotenzial.',cards:[callbackCard],followups:['Was kostet Drucken & Kopieren wirklich?']},
-      {match:/(praxis|klinik|arzt|patient|healthcare)/i,reply:'Praxen sind für uns Alltag: sichere Dokumentenausgabe, saubere Software-Anbindung und zuverlässige Technik am Empfang.',cards:[()=>contactCard('DMS / Technik für unsere Praxis')]},
-      {match:/(dms|dokument|archiv|akte|papier|digitalisier|gobd|scan|ablage)/i,reply:'Papierakten zu digitalisieren muss kein IT-Großprojekt werden. Wir starten mit einer Ist-Aufnahme, bauen die passende Scan- und Archivstrecke und weisen Ihr Team vor Ort ein.',cards:[()=>contactCard('Papierakten digitalisieren / DMS')]},
-      {match:/(störung|defekt|techniker|kaputt|service|wartung|toner|support|reparatur)/i,reply:'Das klären wir direkt. Unter 06003 9414-0 erreichen Sie unsere Technik — einen Menschen, kein Callcenter. Oder wir rufen zurück:',cards:[callbackCard]},
-      {match:/(termin|rückruf|kontakt|beratung|angebot|anruf|sprechen|mensch)/i,reply:'Sehr gern — so kommen wir am schnellsten zusammen:',cards:[callbackCard]},
-      {match:/(wer seid|über euch|docunova|erfahrung|standort|team|geschichte)/i,reply:'docunova wurde 1986 in Rosbach vor der Höhe gegründet und ist heute auch in Nidda vertreten. Wir kümmern uns herstellerunabhängig um Drucken & Kopieren, Dokumentenmanagement und Kommunikation — mit eigenem Technik-Team und festen Ansprechpartnern.'}
+      {match:/(?:was kostet|wie teuer).*(?:druck|kopier)|(?:druck|kopier).*(?:kost|preis|teuer|spar|einspar)|\b(druckkosten|kopierkosten|druckkostencheck)\b/i,reply:'Für eine erste grobe Orientierung können Sie drei Werte einstellen. Die Modellrechnung arbeitet mit pauschalen Annahmen und ersetzt keine Analyse Ihrer vorhandenen Druckumgebung.',cards:[calcCard],followups:['Unser Leasingvertrag läuft aus']},
+      {match:/(leasingvertrag|mietvertrag).*(läuft|endet|aus|kündig|wechsel)|\bvertragsende\b|leasing.*\b(laufzeit|ablauf|kündig|wechsel)\b/i,reply:'Wenn ein Leasing- oder Mietvertrag ausläuft, kann docunova Restlaufzeit, Gerätebedarf und mögliche Wechseloptionen prüfen. Für eine belastbare Einschätzung werden die Vertrags- und Nutzungsdaten benötigt.',cards:[callbackCard],followups:['Was kostet Drucken & Kopieren wirklich?']},
+      {match:/\b(störung|defekt|kaputt|fehlercode)\b|(?:drucker|kopierer|scanner|gerät).*(?:geht nicht|funktioniert nicht|druckt nicht|scannt nicht)|techniker.*(?:brauchen|benötig|schicken)|reparatur.*(?:brauche|benötig|anfrag|dringend)|(?:brauche|benötig).*(?:reparatur|techniker)/i,reply:'Bei einer Störung erreichen Sie docunova direkt unter 06003 9414-0. Alternativ können Sie hier einen Rückruf mit den wichtigsten Angaben anfordern.',cards:[callbackCard]},
+      {match:/\b(rückruf|zurückrufen|kontakt aufnehmen|termin vereinbaren|angebot anfordern|persönlich sprechen)\b|mit (?:einem )?(?:menschen|ansprechpartner|mitarbeiter|berater) sprechen/i,reply:'Gern. Hinterlassen Sie Ihre Kontaktdaten und eine kurze Beschreibung Ihres Anliegens.',cards:[callbackCard]}
     ];
-    const showNotice=()=>{if(noticeShown)return;noticeShown=true;const n=document.createElement('div');n.className='beta-notice';n.innerHTML='<b>Diese Frage geht über unsere vorbereiteten Antworten hinaus.</b> Der KI-Assistent wird gerade fertiggestellt. Bis dahin antworten wir persönlich: <a href="tel:+4960039414-0">06003 9414-0</a> oder <a href="mailto:info@docunova.de">info@docunova.de</a>.';log.appendChild(n);scroll()};
-    const free=text=>{freeAsked++;showNotice();const t=addTyping();setTimeout(()=>{t.remove();if(freeAsked>CONFIG.freeQuestions&&!formShown){formShown=true;addBot('Ab hier kommen wir persönlich weiter. Zwei Sätze genügen — wir melden uns am selben Werktag.',{cards:[()=>contactCard(text)]})}else addBot('Dazu kann ich hier noch nichts Verbindliches sagen. Zu diesen Themen habe ich bereits eine erste Einschätzung:',{followups:['Was kostet Drucken & Kopieren wirklich?','Papierakten digitalisieren','Störung — Techniker benötigt']});pending=false},550)};
-    const route=text=>{const intent=INTENTS.find(x=>x.match.test(text));if(!intent){free(text);return}const t=addTyping();setTimeout(()=>{t.remove();addBot(intent.reply,{cards:intent.cards,followups:intent.followups});pending=false},600)};
+    const showNotice=()=>{if(noticeShown)return;noticeShown=true;const n=document.createElement('div');n.className='beta-notice';n.innerHTML='<b>Der digitale Assistent ist gerade nicht erreichbar.</b> Persönlich erreichen Sie docunova unter <a href="tel:+4960039414-0">06003 9414-0</a> oder <a href="mailto:info@docunova.de">info@docunova.de</a>.';log.appendChild(n);scroll()};
+    const free=text=>{freeAsked++;showNotice();const t=addTyping();setTimeout(()=>{t.remove();if(freeAsked>CONFIG.freeQuestions&&!formShown){formShown=true;addBot('Ab hier kommen wir persönlich weiter. Zwei Sätze genügen — wir melden uns am selben Werktag.',{cards:[()=>contactCard(text)]})}else addBot('Dazu kann ich hier noch nichts Verbindliches sagen. Zu diesen Themen habe ich bereits eine erste Einschätzung:',{followups:['Was kostet Drucken & Kopieren wirklich?','Papierakten digitalisieren','Störung — Techniker benötigt']});completeTurn()},550)};
+    const askRemote=async text=>{
+      const typing=addTyping();
+      try{
+        const ctrl=new AbortController();
+        const timeout=setTimeout(()=>ctrl.abort(),CONFIG.responseTimeoutMs);
+        let res;
+        try{
+          res=await fetch(CONFIG.webhook,{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+              event:'website_chat_message',
+              user:'Website-Besucher',
+              message:text,
+              chatInput:text,
+              sessionId,
+              questionNumber:questionCount,
+              maxQuestions:CONFIG.maxQuestions,
+              source:'docunova_webchat',
+              page:window.location.pathname||'/',
+              timestamp:new Date().toISOString()
+            }),
+            signal:ctrl.signal
+          });
+        }finally{
+          clearTimeout(timeout);
+        }
+        if(!res.ok)throw new Error('bad status');
+        const raw=await res.text();
+        if(!raw.trim())throw new Error('empty response');
+        let payload;
+        try{payload=JSON.parse(raw)}catch{payload=raw}
+        const reply=typeof payload==='string'
+          ?payload
+          :Array.isArray(payload)
+            ?payload[0]?.output||payload[0]?.reply
+            :payload.reply||payload.output||payload.message;
+        if(typeof reply!=='string'||!reply.trim())throw new Error('missing reply');
+        typing.remove();
+        freeAsked++;
+        if(freeAsked>CONFIG.freeQuestions&&!formShown){
+          formShown=true;
+          addBot(reply.trim(),{cards:[()=>contactCard(text)],src:'KI-gestützte Ersteinschätzung'});
+        }else{
+          addBot(reply.trim(),{src:'KI-gestützte Ersteinschätzung'});
+        }
+        completeTurn();
+      }catch(error){
+        typing.remove();
+        questionCount=Math.max(0,questionCount-1);
+        storeQuestionCount();
+        const message=error?.name==='AbortError'
+          ?'Die Antwort dauert gerade länger als erwartet. Bitte senden Sie Ihre Frage noch einmal oder wenden Sie sich direkt an docunova unter 06003 9414-0.'
+          :'Der digitale Assistent ist gerade nicht erreichbar. Bitte versuchen Sie es erneut oder wenden Sie sich direkt an docunova unter 06003 9414-0.';
+        addBot(message);
+        completeTurn();
+      }
+    };
+    const route=text=>{const intent=INTENTS.find(x=>x.match.test(text));if(!intent){if(CONFIG.webhookEnabled)askRemote(text);else free(text);return}const t=addTyping();setTimeout(()=>{t.remove();addBot(intent.reply,{cards:intent.cards,followups:intent.followups});completeTurn()},600)};
     function submit(value){
-      const text=String(value||'').trim();if(!text||pending)return;pending=true;
-      if(!shell.classList.contains('chatting')){shell.classList.add('chatting');document.body.classList.add('chat-open');addBot('Guten Tag — schön, dass Sie da sind. Womit können wir Ihr Büro schneller machen?')}
+      const text=String(value||'').trim();if(!text||pending)return;
+      if(!shell.classList.contains('chatting')){shell.classList.add('chatting');document.body.classList.add('chat-open');addBot('Guten Tag. Ich bin der KI-gestützte Assistent von docunova und gebe Ihnen eine erste unverbindliche Orientierung. Womit kann ich Ihnen helfen?')}
+      if(questionCount>=CONFIG.maxQuestions){showQuestionLimit();return}
+      questionCount++;storeQuestionCount();pending=true;
       addUser(text);route(text);$('#inputDock').focus();
     }
     [['#askHero','#inputHero'],['#askDock','#inputDock']].forEach(([f,i])=>$(f).addEventListener('submit',e=>{e.preventDefault();const input=$(i);submit(input.value);input.value=''}));
