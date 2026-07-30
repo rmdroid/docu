@@ -219,6 +219,15 @@ html.a11y-noanim .reveal{opacity:1;transform:none}
 .form-msg{margin-top:18px;font-size:.88rem;padding:14px 16px;border-radius:3px;display:none}
 .form-msg.ok{display:block;background:#e8f5ea;color:#256a35}
 .form-msg.err{display:block;background:#fbe9ea;color:#b00824}
+.form-hp{
+  position:absolute!important;
+  left:-10000px!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important
+}
 
 @media (max-width:1180px){
   .nav-desk{gap:15px}
