@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Störungsmeldung — docunova GmbH</title>
+<meta name="description" content="Technische Störung direkt an den docunova Service melden.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://docunova.de/stoerung.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts-site.css">
+<link rel="stylesheet" href="site.css?v=20260729-2">
+<script>
+(function(){
+  try{
+    var s = JSON.parse(localStorage.getItem('dn-a11y') || '{}');
+    var h = document.documentElement;
+    if(s.bigtext) h.classList.add('a11y-bigtext');
+    if(s.contrast) h.classList.add('a11y-contrast');
+    if(s.gray) h.classList.add('a11y-gray');
+    if(s.noanim) h.classList.add('a11y-noanim');
+  }catch(e){}
+  if(localStorage.getItem('dn-view') === 'chat') document.documentElement.classList.add('view-chat');
+  if(new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embedded');
+})();
+</script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Hanken Grotesk',sans-serif;background:#fff;color:#0B0B0C;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(32px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 14px;overflow-wrap:break-word}
+  p{font-size:16px;line-height:1.65;color:#55555c}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#D60A2E;margin-bottom:18px}
+  label{display:block;font-size:13px;font-weight:600;margin:0 0 6px}
+  .req{color:#D60A2E}
+  input,select,textarea{width:100%;font-family:'Hanken Grotesk',sans-serif;font-size:15px;padding:13px 14px;border:1px solid #d8d6d2;border-radius:3px;background:#fff;color:#0B0B0C}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:#D60A2E}
+  .field{margin-bottom:20px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:560px){.row2{grid-template-columns:1fr}}
+  button[type=submit]{background:#D60A2E;color:#fff;font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:2px;cursor:pointer}
+  button[type=submit]:hover{background:#b00824}
+  button[type=submit]:disabled{opacity:.6;cursor:default}
+  #msg{margin-top:18px;font-size:14px;padding:14px 16px;border-radius:3px;display:none}
+  #msg.ok{display:block;background:#e8f5ea;color:#256a35}
+  #msg.err{display:block;background:#fbe9ea;color:#b00824}
+  .urgent-note{background:#F5F4F1;border-left:3px solid #D60A2E;padding:14px 18px;font-size:14px;color:#5d5d63;margin:0 0 32px}
+
+  /* --- Störungsannahme im Dialog --- */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .sd-shell{border:1px solid #e4e1db;background:#fff;display:flex;flex-direction:column;height:min(620px,74svh);min-height:480px}
+  .sd-head{padding:16px 22px;border-bottom:1px solid #eceae5;display:flex;gap:14px;align-items:center}
+  .sd-head .t{font:600 .69rem/1 var(--mono,'Space Mono',monospace);letter-spacing:.13em;text-transform:uppercase}
+  .sd-head .d{margin-left:auto;font:500 .68rem/1 var(--mono,'Space Mono',monospace);color:#8b8b86}
+  .sd-log{flex:1;min-height:0;overflow-y:auto;padding:24px 22px 18px 0;position:relative}
+  .sd-log::before{content:'';position:absolute;left:64px;top:0;bottom:0;width:1px;background:rgba(214,10,46,.28)}
+  .sd-entry{display:flex;margin:0 0 22px}
+  .sd-entry .ts{flex:0 0 64px;text-align:center;padding-top:3px;font:500 .61rem/1 var(--mono,'Space Mono',monospace);color:#99958e}
+  .sd-entry .msg{flex:1;min-width:0;padding-left:20px}
+  .sd-entry .who{font:600 .62rem/1 var(--mono,'Space Mono',monospace);letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:7px}
+  .sd-entry.bot .who{color:#D60A2E}
+  .sd-entry .body{font-size:.98rem;line-height:1.62;max-width:62ch;white-space:pre-wrap;color:#0B0B0C}
+  .sd-entry.user .body{color:#5c5c58}
+  .sd-typing{display:inline-flex;gap:5px;padding:6px 0}
+  .sd-typing i{width:6px;height:6px;border-radius:50%;background:#8b8b86;animation:sdblink 1.2s infinite}
+  .sd-typing i:nth-child(2){animation-delay:.2s}.sd-typing i:nth-child(3){animation-delay:.4s}
+  @keyframes sdblink{0%,60%,100%{opacity:.25}30%{opacity:1}}
+  .sd-recap{margin-top:12px;border:1px solid #e4e1db;border-left:3px solid #D60A2E;background:#FBFAF7;padding:14px 16px;font-size:.86rem;line-height:1.7;max-width:62ch}
+  .sd-recap dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}
+  .sd-recap dt{font:500 .6rem/1.6 var(--mono,'Space Mono',monospace);letter-spacing:.08em;text-transform:uppercase;color:#8b8b86;white-space:nowrap}
+  .sd-recap dd{margin:0;color:#0B0B0C;overflow-wrap:anywhere}
+  .sd-done{margin-top:12px;padding:14px 16px;background:#e8f5ea;border-left:3px solid #256a35;font-size:.88rem;line-height:1.6;color:#256a35;max-width:62ch}
+  .sd-fail{margin-top:12px;padding:14px 16px;background:#fbe9ea;border-left:3px solid #b00824;font-size:.88rem;line-height:1.6;color:#b00824;max-width:62ch}
+  .sd-fail a{color:#b00824}
+  .sd-dock{border-top:1px solid #eceae5;background:#fbfaf7;padding:13px 20px 15px}
+  .sd-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:11px}
+  .sd-chips:empty{display:none}
+  .sd-chip{border:1px solid #d8d5cf;background:#fff;color:#56565b;border-radius:999px;padding:8px 14px;font:500 .7rem/1.25 var(--mono,'Space Mono',monospace);cursor:pointer}
+  .sd-chip:hover{border-color:#111112;color:#111112}
+  .sd-chip.red{border-color:#D60A2E;color:#D60A2E}
+  .sd-chip.red:hover{background:#D60A2E;color:#fff}
+  .sd-row{display:flex;gap:9px;align-items:stretch}
+  .sd-row input,.sd-row textarea{flex:1;font-family:'Hanken Grotesk',sans-serif;font-size:15px;padding:12px 14px;border:1px solid #d8d6d2;border-radius:3px;background:#fff;color:#0B0B0C;resize:none}
+  .sd-row input:focus,.sd-row textarea:focus{outline:none;border-color:#D60A2E}
+  .sd-row button{flex:0 0 auto;background:#D60A2E;color:#fff;font-weight:700;font-size:15px;padding:0 22px;border:none;border-radius:2px;cursor:pointer}
+  .sd-row button:hover{background:#b00824}
+  .sd-row button:disabled{opacity:.5;cursor:default}
+  .sd-hint{margin:9px 0 0;font:500 .58rem/1.5 var(--mono,'Space Mono',monospace);letter-spacing:.05em;color:#8b8b86}
+  .sd-err{margin:9px 0 0;font-size:.8rem;color:#b00824}
+  .sd-switch{margin:20px 0 0;text-align:center}
+  .sd-switch button{background:none;border:none;font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#55555c;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px}
+  .sd-switch button:hover{color:#D60A2E}
+  #sForm[hidden]{display:none}
+  #sFormWrap{margin-top:34px;padding-top:30px;border-top:1px solid #e4e1db}
+  @media (max-width:560px){
+    .sd-log{padding-right:16px}
+    .sd-log::before{left:44px}
+    .sd-entry .ts{flex-basis:44px}
+    .sd-entry .msg{padding-left:14px}
+    .sd-shell{height:auto;min-height:0}
+    .sd-log{max-height:58svh}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<div class="a11y-fab">
+  <button type="button" id="a11yBtn" aria-expanded="false" aria-controls="a11yPanel" aria-label="Barrierefreiheits-Einstellungen öffnen">&#9855;</button>
+  <div class="a11y-panel" id="a11yPanel" role="group" aria-label="Barrierefreiheits-Einstellungen">
+    <h2>Barrierefreiheit</h2>
+    <button type="button" data-a11y="bigtext" aria-pressed="false">Große Schrift <span class="state">Aus</span></button>
+    <button type="button" data-a11y="contrast" aria-pressed="false">Hoher Kontrast <span class="state">Aus</span></button>
+    <button type="button" data-a11y="gray" aria-pressed="false">Graustufen <span class="state">Aus</span></button>
+    <button type="button" data-a11y="noanim" aria-pressed="false">Animationen stoppen <span class="state">Aus</span></button>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <span class="t" id="modalTitle">Dialog</span>
+      <span class="acts">
+        <a class="ext" id="modalExt" href="#" target="_blank" rel="noopener">In neuem Tab öffnen ↗</a>
+        <button type="button" data-close aria-label="Dialog schließen">&#10005;</button>
+      </span>
+    </div>
+    <iframe id="modalFrame" title="Dialog-Inhalt" src="about:blank"></iframe>
+  </div>
+</div>
+
+
+<header class="site chrome-classic">
+  <div class="nav-bar">
+    <a href="index.html" aria-label="docunova Startseite"><img src="logo.png" width="300" height="94" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block"></a>
+    <nav class="nav-desk" aria-label="Hauptnavigation">
+      <div class="nav-item">
+        <a href="index.html#leistungen">Leistungen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+          <a href="index.html#leistungen-mps">Managed Print Services</a>
+          <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
+          <a href="index.html#leistungen-service">Service &amp; Support</a>
+        </div></div>
+      </div>
+      <a href="index.html#branchen">Branchen</a>
+      <div class="nav-item">
+        <a href="index.html#leistungen-service">Service</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="index.html#leistungen-service">Service &amp; Support</a>
+          <a href="zaehlerstand.html">Zählerstand melden</a>
+          <a href="stoerung.html">Störungsmeldung</a>
+          <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="index.html#warum">Unternehmen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="index.html#warum">Über uns</a>
+          <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+          <a href="kontakt.html#standorte">Standorte</a>
+          <a href="karriere.html">Karriere</a>
+        </div></div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="shop.html">Shop<span class="shop-badge">bald</span></a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="nav-cta" href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Beratung anfragen">Beratung anfragen</a>
+    </nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="navMobile" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile Navigation">
+    <div class="group">LEISTUNGEN</div>
+    <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+    <a href="index.html#leistungen-mps">Managed Print Services</a>
+    <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
+    <a href="index.html#leistungen-service">Service &amp; Support</a>
+    <a class="big" href="index.html#branchen">Branchen</a>
+    <div class="group">SERVICE</div>
+    <a href="zaehlerstand.html">Zählerstand melden</a>
+    <a href="stoerung.html">Störungsmeldung</a>
+    <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+    <div class="group">UNTERNEHMEN</div>
+    <a href="index.html#warum">Über uns</a>
+    <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+    <a href="kontakt.html#standorte">Standorte</a>
+    <a href="karriere.html">Karriere</a>
+    <a class="big" href="blog.html">Blog</a>
+    <a class="big" href="shop.html">Shop <span class="shop-badge">bald</span></a>
+    <a class="big" href="kontakt.html">Kontakt</a>
+    <a class="cta" href="kontakt.html">Beratung anfragen →</a>
+  </nav>
+</header>
+
+<header class="chat-top chrome-chat">
+  <div class="chat-top-in">
+    <a class="chat-wordmark" href="index.html" aria-label="Zurück zum docunova Concierge">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><polygon points="0,0 0,26 26,26" fill="#E30613"/></svg>
+      <span class="wm-text">
+        <span class="wm-name">docunova</span>
+        <span class="wm-sub">Document Solutions</span>
+      </span>
+    </a>
+    <div class="chat-top-right">
+      <a class="chat-alt" href="index.html">Alles im Überblick →</a>
+      <a class="chat-phone" href="tel:+4960039414-0">06003 9414-0</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="page narrow">
+  <div class="eyebrow">Service</div>
+  <h1>Störungsmeldung</h1>
+  <p>Beschreiben Sie kurz das Problem — unser Technik-Team meldet sich zeitnah bei Ihnen.</p>
+  <div class="urgent-note">Bei einem dringenden Ausfall im laufenden Betrieb erreichen Sie uns schneller telefonisch: <a href="tel:+4960039414-0" style="color:#D60A2E">06003 9414-0</a>.</div>
+
+  <section class="sd-shell" id="sdShell" aria-label="Geführte Störungsannahme">
+    <div class="sd-head">
+      <span class="t">Störungsannahme</span>
+      <span class="d" id="sdDate"></span>
+    </div>
+    <div class="sd-log" id="sdLog" role="log" aria-live="polite" aria-atomic="false"></div>
+    <div class="sd-dock">
+      <div class="sd-chips" id="sdChips"></div>
+      <form class="sd-row" id="sdInputForm" novalidate>
+        <label for="sdField" class="sr-only" id="sdLabel">Ihre Antwort</label>
+        <input id="sdField" name="antwort" autocomplete="off" placeholder="Ihre Antwort …" aria-describedby="sdErr">
+        <button type="submit" id="sdSend" aria-label="Antwort senden">Weiter</button>
+      </form>
+      <p class="sd-err" id="sdErr" role="alert" hidden></p>
+      <p class="sd-hint">Ihre Angaben gehen erst nach Ihrer Bestätigung an den Service. Kein KI-Chat — ein geführtes Formular.</p>
+    </div>
+  </section>
+
+  <p class="sd-switch"><button type="button" id="sdToggle" aria-expanded="false" aria-controls="sFormWrap">Lieber das klassische Formular ausfüllen</button></p>
+
+  <div id="sFormWrap" hidden>
+  <form id="sForm" novalidate
+        data-webhook="https://n8n.docunova.de/webhook/Webseite"
+        data-formular="service_stoerung"
+        data-success="Danke! Ihre Störungsmeldung ist bei uns eingegangen.">
+    <div class="form-hp" aria-hidden="true">
+      <label for="sWebsite">Website</label>
+      <input type="text" id="sWebsite" name="website" tabindex="-1" autocomplete="off" data-honeypot>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="kdnr">Kundennummer <span class="req">*</span></label>
+        <input id="kdnr" name="kundennummer" required>
+      </div>
+      <div class="field">
+        <label for="standort">Gerätestandort <span class="req">*</span></label>
+        <input id="standort" name="standort" placeholder="z. B. Filiale, Abteilung" required>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="modell">Seriennummer / Modell</label>
+        <input id="modell" name="modell">
+      </div>
+      <div class="field">
+        <label for="dringlichkeit">Dringlichkeit <span class="req">*</span></label>
+        <select id="dringlichkeit" name="dringlichkeit" required>
+          <option value="normal">Normal</option>
+          <option value="dringend">Dringend — Betrieb steht still</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="fehlercode">Fehlercode (falls angezeigt, optional)</label>
+      <input id="fehlercode" name="fehlercode">
+    </div>
+    <div class="field">
+      <label for="beschreibung">Fehlerbeschreibung <span class="req">*</span></label>
+      <textarea id="beschreibung" name="beschreibung" rows="4" required></textarea>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="name">Ihr Name <span class="req">*</span></label>
+        <input id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="email">E-Mail <span class="req">*</span></label>
+        <input id="email" name="email" type="email" required>
+      </div>
+    </div>
+    <div class="field">
+      <label for="tel">Telefon (optional)</label>
+      <input id="tel" name="telefon" type="tel">
+    </div>
+    <button type="submit" id="submitBtn">Störung melden →</button>
+    <div id="msg" class="msg" role="status"></div>
+  </form>
+  </div>
+</main>
+
+<footer class="site chrome-classic">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <img src="logo.png" width="300" height="94" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block;margin-bottom:20px">
+      <p class="foot-addr">Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+      Tel. <a href="tel:+4960039414-0">06003 9414-0</a><br>
+      Fax 06003 9414-24<br>
+      <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+      <div class="social">
+        <a href="https://www.linkedin.com/company/docunova-gmbh/" target="_blank" rel="noopener" aria-label="docunova bei LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://www.xing.com/pages/docunovagmbh" target="_blank" rel="noopener" aria-label="docunova bei Xing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 0c-.4 0-.6.13-.78.44l-6.6 11.68 4.2 7.72c.17.3.4.44.78.44h3.1c.19 0 .33-.07.4-.2.09-.15.08-.32 0-.5l-4.17-7.63v-.02L21.28.7c.09-.18.1-.35.01-.5-.07-.13-.2-.2-.4-.2H17.8zM3.1 5.12c-.2 0-.34.07-.42.2-.08.15-.07.33.02.5l2 3.45v.02l-3.13 5.53c-.09.17-.09.34 0 .49.07.13.2.2.4.2h3.1c.4 0 .6-.14.78-.45l3.18-5.62-2.03-3.54c-.18-.31-.4-.45-.79-.45H3.1z"/></svg></a>
+        <a href="https://www.facebook.com/docunovagmbh/" target="_blank" rel="noopener" aria-label="docunova bei Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <div class="head">LEISTUNGEN</div>
+      <nav aria-label="Footer Leistungen">
+        <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+        <a href="index.html#leistungen-mps">Managed Print Services</a>
+        <a href="index.html#leistungen-dms">Dokumentenmanagement</a>
+        <a href="index.html#leistungen-service">Service &amp; Support</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">SERVICE</div>
+      <nav aria-label="Footer Service">
+        <a href="zaehlerstand.html">Zählerstand melden</a>
+        <a href="stoerung.html">Störungsmeldung</a>
+        <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">UNTERNEHMEN</div>
+      <nav aria-label="Footer Unternehmen">
+        <a href="index.html#warum">Über uns</a>
+        <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+        <a href="kontakt.html">Kontakt &amp; Standorte</a>
+        <a href="karriere.html">Karriere</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">RECHTLICHES</div>
+      <nav aria-label="Footer Rechtliches">
+        <a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a>
+        <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a>
+      <a href="index.html?consent=1#cookie-einstellungen">Cookie-Einstellungen</a>
+      </nav>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 docunova GmbH · Herstellerunabhängige Bürotechnik-Beratung</span>
+    <span><a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a> · <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a></span>
+  </div>
+</footer>
+
+<footer class="chat-foot chrome-chat">
+  <div class="chat-foot-in">
+    <div class="cf-col">
+      <div class="cf-wm"><svg viewBox="0 0 26 26" aria-hidden="true"><polygon points="0,0 0,26 26,26" fill="#E30613"/></svg><b>docunova</b></div>
+      <p>Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+      Fon 06003 9414-0<br>Fax 06003 9414-24<br>
+      <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Service</div>
+      <a href="zaehlerstand.html">Zählerstand erfassen</a>
+      <a href="stoerung.html">Störung melden</a>
+      <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">TeamViewer Fernwartung</a>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Standorte</div>
+      <p>Rosbach v. d. Höhe<br>Nidda — Wolff Bürotechnik</p>
+      <p style="margin-top:8px">Deutschlandweiter Service,<br>Ansprechpartner vor Ort.</p>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Unternehmen</div>
+      <a href="karriere.html">Karriere</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="index.html">Zurück zum Concierge</a>
+    </div>
+  </div>
+  <div class="chat-foot-base">
+    <span>© 2026 docunova GmbH · Wir für Ihr Büro — seit 1986</span>
+    <nav>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    <a href="index.html?consent=1#cookie-einstellungen">Cookie-Einstellungen</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="site.js?v=20260729-3"></script>
+
+<script>
+(() => {
+  const CFG = {
+    webhook: 'https://n8n.docunova.de/webhook/stoerung',
+    maxTurns: 30,
+    timeoutMs: 90000
+  };
+
+  const log    = document.getElementById('sdLog');
+  const chips  = document.getElementById('sdChips');
+  const form   = document.getElementById('sdInputForm');
+  const field  = document.getElementById('sdField');
+  const send   = document.getElementById('sdSend');
+  const errBox = document.getElementById('sdErr');
+  const dateEl = document.getElementById('sdDate');
+  if (!log || !form) return;
+
+  dateEl.textContent = new Date().toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+  const sessionId = (() => {
+    try {
+      let id = sessionStorage.getItem('dn-stoer-session');
+      if (!id) {
+        id = 'st-' + (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + '-' + Math.random().toString(36).slice(2));
+        sessionStorage.setItem('dn-stoer-session', id);
+      }
+      return id;
+    } catch { return 'st-' + Date.now().toString(36); }
+  })();
+
+  let turns = 0, busy = false;
+
+  const uhr = () => new Date().toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const fmt = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/^[-*]\s+/gm, '· ');
+  const scroll = () => { log.scrollTop = log.scrollHeight; };
+
+  const entry = (who, cls, html) => {
+    const el = document.createElement('div');
+    el.className = 'sd-entry ' + cls;
+    el.innerHTML = `<div class="ts">${uhr()}</div><div class="msg"><div class="who">${who}</div><div class="body">${html}</div></div>`;
+    log.appendChild(el);
+    scroll();
+    return el;
+  };
+
+  const bot  = t => entry('Service', 'bot', fmt(t));
+  const user = t => entry('Sie', 'user', esc(t));
+
+  const typing = () => entry('Service', 'bot', '<span class="sd-typing"><i></i><i></i><i></i></span>');
+
+  const setChips = list => {
+    chips.innerHTML = '';
+    (list || []).forEach(t => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'sd-chip';
+      b.textContent = t;
+      b.addEventListener('click', () => { chips.innerHTML = ''; submit(t); });
+      chips.appendChild(b);
+    });
+  };
+
+  const fehler = t => { errBox.textContent = t; errBox.hidden = false; };
+  const okay   = () => { errBox.hidden = true; errBox.textContent = ''; };
+
+  const sperren = grund => {
+    busy = true;
+    field.disabled = true;
+    send.disabled = true;
+    field.placeholder = grund;
+  };
+
+  async function submit(text) {
+    if (busy) return;
+    text = String(text || '').trim();
+    if (!text) { fehler('Bitte geben Sie noch etwas ein.'); return; }
+    okay();
+
+    if (turns >= CFG.maxTurns) {
+      bot('Dieser Dialog ist am Ende seiner Länge angekommen. Bitte rufen Sie uns unter 06003 9414-0 an, damit wir Ihre Meldung direkt aufnehmen.');
+      sperren('Dialog beendet');
+      return;
+    }
+
+    turns++;
+    user(text);
+    field.value = '';
+    busy = true;
+    send.disabled = true;
+    setChips([]);
+    const t = typing();
+
+    let ctrl, to;
+    try {
+      ctrl = new AbortController();
+      to = setTimeout(() => ctrl.abort(), CFG.timeoutMs);
+      const res = await fetch(CFG.webhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: text,
+          chatInput: text,
+          sessionId,
+          source: 'docunova_stoerung',
+          page: window.location.pathname || '/',
+          timestamp: new Date().toISOString()
+        }),
+        signal: ctrl.signal
+      });
+      if (!res.ok) throw new Error('status ' + res.status);
+      const data = await res.json();
+      const out = Array.isArray(data) ? (data[0] && (data[0].output || data[0].text)) : (data.output || data.text);
+      t.remove();
+      if (!out) throw new Error('leere Antwort');
+      bot(out);
+    } catch (e) {
+      t.remove();
+      bot('Da ist gerade etwas dazwischengekommen — ich konnte Ihre Nachricht nicht verarbeiten.\n\nBitte melden Sie die Störung telefonisch unter **06003 9414-0** oder nutzen Sie das klassische Formular weiter unten.');
+      document.getElementById('sFormWrap').hidden = false;
+      document.getElementById('sdToggle').setAttribute('aria-expanded', 'true');
+    } finally {
+      clearTimeout(to);
+      busy = false;
+      send.disabled = false;
+      if (!field.disabled) field.focus();
+      scroll();
+    }
+  }
+
+  form.addEventListener('submit', e => { e.preventDefault(); submit(field.value); });
+
+  const toggle = document.getElementById('sdToggle');
+  const wrap = document.getElementById('sFormWrap');
+  toggle.addEventListener('click', () => {
+    const offen = !wrap.hidden;
+    wrap.hidden = offen;
+    toggle.setAttribute('aria-expanded', String(!offen));
+    toggle.textContent = offen ? 'Lieber das klassische Formular ausfüllen' : 'Zurück zum geführten Dialog';
+    if (!offen) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  bot('Guten Tag, hier ist die Störungsannahme von docunova. Ich bin ein KI-Assistent und nehme Ihre Meldung auf.\n\nWas funktioniert bei Ihnen gerade nicht?');
+  setChips(['Gerät druckt nicht', 'Streifen im Druckbild', 'Papierstau', 'Scannen geht nicht', 'Fehlermeldung im Display']);
+})();
+</script>
+
+</body>
+</html>
