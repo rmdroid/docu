@@ -159,7 +159,9 @@ header.site{position:sticky;top:0;z-index:60;background:var(--ink);border-bottom
 .dropdown-inner{min-width:260px;background:var(--ink);border:1px solid var(--dark-line);border-radius:4px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 .dropdown-inner a{display:block;padding:10px 14px;font-size:.88rem;line-height:1.3;color:var(--dark-soft);text-decoration:none;border-radius:3px;white-space:nowrap;font-weight:500}
 .dropdown-inner a:hover{background:#17171b;color:#fff}
-.shop-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.05em;color:#ff8fa3;background:rgba(214,10,46,.22);padding:2px 6px;border-radius:20px;margin-left:6px;vertical-align:2px}
+.shop-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:#efedea;background:transparent;border:1px solid rgba(255,255,255,.34);padding:2px 7px;border-radius:20px;margin-left:7px;vertical-align:2px}
+.nav-desk a[href="shop.html"]{color:#fff}
+.nav-desk a[href="shop.html"]:hover .shop-badge{border-color:var(--red);color:#fff}
 .nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff !important;font-weight:600;font-size:.92rem;padding:11px 18px;border-radius:2px;text-decoration:none;white-space:nowrap}
 .nav-cta:hover{background:var(--red-dark);color:#fff !important}
 .burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:none;cursor:pointer;padding:0;margin-right:-10px}
