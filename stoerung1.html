@@ -6,7 +6,7 @@
 <title>Störungsmeldung — docunova GmbH</title>
 <meta name="description" content="Technische Störung direkt an den docunova Service melden.">
 <meta name="robots" content="noindex,follow">
-<link rel="canonical" href="https://docunova.de/stoerung.html">
+<link rel="canonical" href="https://docunova.de/stoerung1.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts-site.css">
 <link rel="stylesheet" href="site.css?v=20260729-2">
@@ -74,7 +74,7 @@
   .sd-dock{border-top:1px solid #eceae5;background:#fbfaf7;padding:13px 20px 15px}
   .sd-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:11px}
   .sd-chips:empty{display:none}
-  .sd-chip{border:1px solid #d8d5cf;background:#fff;color:#56565b;border-radius:999px;padding:8px 14px;font:500 .7rem/1.25 var(--mono,'Space Mono',monospace);cursor:pointer}
+  .sd-chip{border:1px solid #d8d5cf;background:#fff;color:#56565b;border-radius:999px;padding:8px 15px;font:500 .8rem/1.25 'Hanken Grotesk',sans-serif;cursor:pointer}
   .sd-chip:hover{border-color:#111112;color:#111112}
   .sd-chip.red{border-color:#D60A2E;color:#D60A2E}
   .sd-chip.red:hover{background:#D60A2E;color:#fff}
@@ -84,7 +84,7 @@
   .sd-row button{flex:0 0 auto;background:#D60A2E;color:#fff;font-weight:700;font-size:15px;padding:0 22px;border:none;border-radius:2px;cursor:pointer}
   .sd-row button:hover{background:#b00824}
   .sd-row button:disabled{opacity:.5;cursor:default}
-  .sd-hint{margin:9px 0 0;font:500 .58rem/1.5 var(--mono,'Space Mono',monospace);letter-spacing:.05em;color:#8b8b86}
+  .sd-hint{margin:10px 0 0;font:400 .75rem/1.55 'Hanken Grotesk',sans-serif;letter-spacing:0;color:#8b8b86}
   .sd-err{margin:9px 0 0;font-size:.8rem;color:#b00824}
   .sd-switch{margin:20px 0 0;text-align:center}
   .sd-switch button{background:none;border:none;font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#55555c;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px}
@@ -140,23 +140,23 @@
           <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
           <a href="index.html#leistungen-mps">Managed Print Services</a>
           <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
-          <a href="index.html#leistungen-service">Service &amp; Support</a>
+          <a href="service.html">Service &amp; Support</a>
         </div></div>
       </div>
       <a href="index.html#branchen">Branchen</a>
       <div class="nav-item">
-        <a href="index.html#leistungen-service">Service</a>
+        <a href="service.html">Service</a>
         <div class="dropdown"><div class="dropdown-inner">
-          <a href="index.html#leistungen-service">Service &amp; Support</a>
+          <a href="service.html">Service &amp; Support</a>
           <a href="zaehlerstand.html">Zählerstand melden</a>
-          <a href="stoerung.html">Störungsmeldung</a>
+          <a href="stoerung1.html">Störungsmeldung</a>
           <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
         </div></div>
       </div>
       <div class="nav-item">
-        <a href="index.html#warum">Unternehmen</a>
+        <a href="ueber.html">Unternehmen</a>
         <div class="dropdown"><div class="dropdown-inner">
-          <a href="index.html#warum">Über uns</a>
+          <a href="ueber.html">Über uns</a>
           <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
           <a href="kontakt.html#standorte">Standorte</a>
           <a href="karriere.html">Karriere</a>
@@ -176,14 +176,14 @@
     <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
     <a href="index.html#leistungen-mps">Managed Print Services</a>
     <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
-    <a href="index.html#leistungen-service">Service &amp; Support</a>
+    <a href="service.html">Service &amp; Support</a>
     <a class="big" href="index.html#branchen">Branchen</a>
     <div class="group">SERVICE</div>
     <a href="zaehlerstand.html">Zählerstand melden</a>
-    <a href="stoerung.html">Störungsmeldung</a>
+    <a href="stoerung1.html">Störungsmeldung</a>
     <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
     <div class="group">UNTERNEHMEN</div>
-    <a href="index.html#warum">Über uns</a>
+    <a href="ueber.html">Über uns</a>
     <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
     <a href="kontakt.html#standorte">Standorte</a>
     <a href="karriere.html">Karriere</a>
@@ -230,7 +230,7 @@
         <button type="submit" id="sdSend" aria-label="Antwort senden">Weiter</button>
       </form>
       <p class="sd-err" id="sdErr" role="alert" hidden></p>
-      <p class="sd-hint">Ihre Angaben gehen erst nach Ihrer Bestätigung an den Service. Kein KI-Chat — ein geführtes Formular.</p>
+      <p class="sd-hint">KI-gestützter Assistent — Antworten können Fehler enthalten. Ihre Meldung geht erst nach Ihrer Bestätigung an den Service.</p>
     </div>
   </section>
 
@@ -238,7 +238,7 @@
 
   <div id="sFormWrap" hidden>
   <form id="sForm" novalidate
-        data-webhook="https://n8n.docunova.de/webhook/Webseite"
+        data-webhook="https://n8n.docunova.de/webhook/stoerung-formular"
         data-formular="service_stoerung"
         data-success="Danke! Ihre Störungsmeldung ist bei uns eingegangen.">
     <div class="form-hp" aria-hidden="true">
@@ -247,18 +247,28 @@
     </div>
     <div class="row2">
       <div class="field">
-        <label for="kdnr">Kundennummer <span class="req">*</span></label>
-        <input id="kdnr" name="kundennummer" required>
+        <label for="firma">Firma <span class="req">*</span></label>
+        <input id="firma" name="firma" required>
       </div>
       <div class="field">
-        <label for="standort">Gerätestandort <span class="req">*</span></label>
-        <input id="standort" name="standort" placeholder="z. B. Filiale, Abteilung" required>
+        <label for="kdnr">Kundennummer (optional)</label>
+        <input id="kdnr" name="kundennummer" placeholder="falls zur Hand">
       </div>
     </div>
     <div class="row2">
       <div class="field">
-        <label for="modell">Seriennummer / Modell</label>
-        <input id="modell" name="modell">
+        <label for="standort">Stellplatz des Geräts <span class="req">*</span></label>
+        <input id="standort" name="standort" placeholder="z. B. Filiale, Abteilung, Raum" required>
+      </div>
+      <div class="field">
+        <label for="stellplatznummer">Stellplatznummer (optional)</label>
+        <input id="stellplatznummer" name="stellplatznummer">
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="modell">Gerätemodell <span class="req">*</span></label>
+        <input id="modell" name="modell" placeholder="z. B. Kyocera ECOSYS M3145" required>
       </div>
       <div class="field">
         <label for="dringlichkeit">Dringlichkeit <span class="req">*</span></label>
@@ -316,21 +326,21 @@
         <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
         <a href="index.html#leistungen-mps">Managed Print Services</a>
         <a href="index.html#leistungen-dms">Dokumentenmanagement</a>
-        <a href="index.html#leistungen-service">Service &amp; Support</a>
+        <a href="service.html">Service &amp; Support</a>
       </nav>
     </div>
     <div class="foot-col">
       <div class="head">SERVICE</div>
       <nav aria-label="Footer Service">
         <a href="zaehlerstand.html">Zählerstand melden</a>
-        <a href="stoerung.html">Störungsmeldung</a>
+        <a href="stoerung1.html">Störungsmeldung</a>
         <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung</a>
       </nav>
     </div>
     <div class="foot-col">
       <div class="head">UNTERNEHMEN</div>
       <nav aria-label="Footer Unternehmen">
-        <a href="index.html#warum">Über uns</a>
+        <a href="ueber.html">Über uns</a>
         <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
         <a href="kontakt.html">Kontakt &amp; Standorte</a>
         <a href="karriere.html">Karriere</a>
@@ -363,7 +373,7 @@
     <div class="cf-col">
       <div class="cf-h">Service</div>
       <a href="zaehlerstand.html">Zählerstand erfassen</a>
-      <a href="stoerung.html">Störung melden</a>
+      <a href="stoerung1.html">Störung melden</a>
       <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">TeamViewer Fernwartung</a>
     </div>
     <div class="cf-col">

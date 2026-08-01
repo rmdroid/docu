@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Service, Wartung &amp; IT-Support — docunova GmbH</title>
+<meta name="description" content="Wartung, Reparatur und IT-Support für Drucksysteme: eigene Techniker, deutschlandweiter Vor-Ort-Service und ein persönlicher Ansprechpartner statt Callcenter.">
+<link rel="canonical" href="https://docunova.de/service.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts-site.css">
+<link rel="stylesheet" href="site.css?v=20260729-2">
+<script>
+(function(){
+  try{
+    var s = JSON.parse(localStorage.getItem('dn-a11y') || '{}');
+    var h = document.documentElement;
+    if(s.bigtext) h.classList.add('a11y-bigtext');
+    if(s.contrast) h.classList.add('a11y-contrast');
+    if(s.gray) h.classList.add('a11y-gray');
+    if(s.noanim) h.classList.add('a11y-noanim');
+  }catch(e){}
+  if(localStorage.getItem('dn-view') === 'chat') document.documentElement.classList.add('view-chat');
+  if(new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embedded');
+})();
+</script>
+<style>
+  :root{
+    --paper:#FAF9F6;
+    --soft:#F2F0EB;
+    --mono:'Space Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Hanken Grotesk',sans-serif;background:var(--paper);color:#0B0B0C;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  /* Kopfbereich — Bild wird eingeblendet, sobald service-hero.webp im Ordner liegt */
+  .sv-hero{position:relative;background:#0B0B0C;color:#fff;overflow:hidden;padding:104px 0 88px}
+  /* gespiegelt: im Original kniet der Techniker links, dort steht aber der Text */
+  .sv-hero .bg{position:absolute;inset:0;background:url('service-hero.webp') center 42%/cover no-repeat;opacity:.62;filter:grayscale(.12) contrast(1.04);transform:scaleX(-1)}
+  .sv-hero .veil{position:absolute;inset:0;background:linear-gradient(95deg,rgba(11,11,12,.92) 0%,rgba(11,11,12,.8) 38%,rgba(11,11,12,.34) 100%)}
+  .sv-hero .wrap{position:relative;z-index:2}
+  .sv-hero .eyebrow{color:#ff8a9c;margin-bottom:20px}
+  .sv-hero h1{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(2.3rem,5vw,4.1rem);line-height:1.03;letter-spacing:-.035em;margin:0;max-width:15ch;text-shadow:0 2px 30px rgba(0,0,0,.7)}
+  .sv-hero p{font-size:clamp(1rem,1.5vw,1.19rem);line-height:1.6;color:#e2e1e4;max-width:52ch;margin:26px 0 0;text-shadow:0 1px 18px rgba(0,0,0,.7)}
+  .sv-quote{position:relative;z-index:2;margin:34px 0 0;padding-left:18px;border-left:3px solid #D60A2E;font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(1.05rem,1.9vw,1.4rem);line-height:1.35;color:#fff;max-width:26ch;text-shadow:0 1px 18px rgba(0,0,0,.7)}
+
+  .sv-sec{padding:84px 0}
+  .sv-sec.soft{background:var(--soft)}
+  .sv-head{max-width:62ch;margin:0 0 40px}
+  .sv-head h2{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1.06;letter-spacing:-.025em;margin:0}
+  .sv-head p{font-size:1.05rem;line-height:1.65;color:#55555c;margin:18px 0 0}
+
+  /* Schnellwege */
+  .sv-ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .sv-way{display:flex;flex-direction:column;background:#fff;border:1px solid #e4e1db;border-radius:4px;padding:26px 24px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+  .sv-way:hover{border-color:#0B0B0C;transform:translateY(-2px)}
+  .sv-way .num{font:700 .62rem/1 var(--mono);letter-spacing:.14em;color:#D60A2E;margin-bottom:14px}
+  .sv-way h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.1rem;line-height:1.3;margin:0 0 9px}
+  .sv-way p{font-size:.94rem;line-height:1.6;color:#55555c;margin:0 0 18px}
+  .sv-way .go{margin-top:auto;font-weight:600;font-size:.9rem;color:#D60A2E}
+
+  /* Leistungen */
+  .sv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .sv-card{background:#fff;border:1px solid #e4e1db;border-radius:4px;padding:26px 24px}
+  .sv-sec.soft .sv-card{background:var(--paper)}
+  .sv-card h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.05rem;line-height:1.3;margin:0 0 10px}
+  .sv-card p{font-size:.95rem;line-height:1.6;color:#55555c;margin:0}
+
+  /* Lebenszyklus */
+  .sv-steps{list-style:none;padding:0;margin:0;display:grid;gap:2px}
+  .sv-step{display:grid;grid-template-columns:52px 1fr;gap:0 22px;align-items:start;background:#fff;border:1px solid #e4e1db;padding:20px 22px}
+  .sv-sec.soft .sv-step{background:var(--paper)}
+  .sv-step + .sv-step{border-top:0}
+  .sv-step .n{font:700 .82rem/1.5 var(--mono);color:#D60A2E}
+  .sv-step h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1rem;line-height:1.35;margin:0 0 6px}
+  .sv-step p{font-size:.95rem;line-height:1.6;color:#55555c;margin:0}
+
+  /* Kennzahl */
+  .sv-metric{background:#0B0B0C;color:#fff;padding:62px 0}
+  .sv-metric .in{display:grid;grid-template-columns:auto 1fr;gap:0 46px;align-items:center}
+  .sv-metric .big{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(3.2rem,8vw,5.6rem);line-height:.9;letter-spacing:-.04em}
+  .sv-metric .lbl{font:600 .62rem/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#8d8b90;margin-top:12px}
+  .sv-metric p{font-size:1.03rem;line-height:1.6;color:#c9c8cc;margin:0;max-width:44ch}
+  @media (max-width:640px){.sv-metric .in{grid-template-columns:1fr;gap:22px}}
+
+  /* Ansprechpartner */
+  .sv-person{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;align-items:start}
+  .sv-person .box{border:1px solid #e4e1db;border-left:3px solid #D60A2E;background:#fff;padding:26px 24px}
+  .sv-sec.soft .sv-person .box{background:var(--paper)}
+  .sv-person .lbl{font:600 .6rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#8b8b86;display:block;margin-bottom:12px}
+  .sv-person strong{font-family:'Schibsted Grotesk',sans-serif;font-size:1.15rem;display:block;margin-bottom:10px}
+  .sv-person p{font-size:.97rem;line-height:1.7;color:#55555c;margin:0}
+  .sv-person a{color:#0B0B0C}
+  .sv-person .tel{font-family:var(--mono);font-weight:700}
+
+  .sv-cta{background:var(--soft);padding:72px 0;border-top:1px solid #e4e1db}
+  .sv-cta h2{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.08;letter-spacing:-.025em;margin:0 0 14px}
+  .sv-cta p{font-size:1.03rem;line-height:1.6;color:#55555c;max-width:52ch;margin:0 0 28px}
+  .sv-cta .row{display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+
+  @media (max-width:640px){
+    .sv-hero{padding:72px 0 60px}
+    .sv-hero .veil{background:linear-gradient(180deg,rgba(11,11,12,.78),rgba(11,11,12,.9))}
+    .sv-sec{padding:58px 0}
+    .sv-step{grid-template-columns:1fr;gap:8px}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<div class="a11y-fab">
+  <button type="button" id="a11yBtn" aria-expanded="false" aria-controls="a11yPanel" aria-label="Barrierefreiheits-Einstellungen öffnen">&#9855;</button>
+  <div class="a11y-panel" id="a11yPanel" role="group" aria-label="Barrierefreiheits-Einstellungen">
+    <h2>Barrierefreiheit</h2>
+    <button type="button" data-a11y="bigtext" aria-pressed="false">Große Schrift <span class="state">Aus</span></button>
+    <button type="button" data-a11y="contrast" aria-pressed="false">Hoher Kontrast <span class="state">Aus</span></button>
+    <button type="button" data-a11y="gray" aria-pressed="false">Graustufen <span class="state">Aus</span></button>
+    <button type="button" data-a11y="noanim" aria-pressed="false">Animationen stoppen <span class="state">Aus</span></button>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <span class="t" id="modalTitle">Dialog</span>
+      <span class="acts">
+        <a class="ext" id="modalExt" href="#" target="_blank" rel="noopener">In neuem Tab öffnen ↗</a>
+        <button type="button" data-close aria-label="Dialog schließen">&#10005;</button>
+      </span>
+    </div>
+    <iframe id="modalFrame" title="Dialog-Inhalt" src="about:blank"></iframe>
+  </div>
+</div>
+
+<header class="site chrome-classic">
+  <div class="nav-bar">
+    <a href="index.html" aria-label="docunova Startseite"><img src="logo.png" width="300" height="94" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block"></a>
+    <nav class="nav-desk" aria-label="Hauptnavigation">
+      <div class="nav-item">
+        <a href="index.html#leistungen">Leistungen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+          <a href="index.html#leistungen-mps">Managed Print Services</a>
+          <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
+          <a href="service.html">Service &amp; Support</a>
+        </div></div>
+      </div>
+      <a href="index.html#branchen">Branchen</a>
+      <div class="nav-item">
+        <a href="service.html">Service</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="service.html">Service &amp; Support</a>
+          <a href="zaehlerstand.html">Zählerstand melden</a>
+          <a href="stoerung1.html">Störungsmeldung</a>
+          <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="ueber.html">Unternehmen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="ueber.html">Über uns</a>
+          <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+          <a href="kontakt.html#standorte">Standorte</a>
+          <a href="karriere.html">Karriere</a>
+        </div></div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="shop.html">Shop<span class="shop-badge">bald</span></a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="nav-cta" href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Beratung anfragen">Beratung anfragen</a>
+    </nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="navMobile" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile Navigation">
+    <div class="group">LEISTUNGEN</div>
+    <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+    <a href="index.html#leistungen-mps">Managed Print Services</a>
+    <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
+    <a href="service.html">Service &amp; Support</a>
+    <a class="big" href="index.html#branchen">Branchen</a>
+    <div class="group">SERVICE</div>
+    <a href="service.html">Service &amp; Support</a>
+    <a href="zaehlerstand.html">Zählerstand melden</a>
+    <a href="stoerung1.html">Störungsmeldung</a>
+    <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+    <div class="group">UNTERNEHMEN</div>
+    <a href="ueber.html">Über uns</a>
+    <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+    <a href="kontakt.html#standorte">Standorte</a>
+    <a href="karriere.html">Karriere</a>
+    <a class="big" href="blog.html">Blog</a>
+    <a class="big" href="shop.html">Shop <span class="shop-badge">bald</span></a>
+    <a class="big" href="kontakt.html">Kontakt</a>
+    <a class="cta" href="kontakt.html">Beratung anfragen →</a>
+  </nav>
+</header>
+
+<header class="chat-top chrome-chat">
+  <div class="chat-top-in">
+    <a class="chat-wordmark" href="index.html" aria-label="Zurück zum docunova Concierge">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><polygon points="0,0 0,26 26,26" fill="#E30613"/></svg>
+      <span class="wm-text">
+        <span class="wm-name">docunova</span>
+        <span class="wm-sub">Document Solutions</span>
+      </span>
+    </a>
+    <div class="chat-top-right">
+      <a class="chat-alt" href="index.html">Alles im Überblick →</a>
+      <a class="chat-phone" href="tel:+4960039414-0">06003 9414-0</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="sv-hero" aria-labelledby="svTitle">
+    <span class="bg" aria-hidden="true"></span>
+    <span class="veil" aria-hidden="true"></span>
+    <div class="wrap">
+      <p class="eyebrow">Service</p>
+      <h1 id="svTitle">Service, Wartung und IT-Support.</h1>
+      <p>Qualifizierte Techniker reparieren, reinigen und warten Ihre Drucksysteme vor Ort — deutschlandweit und mit einem Ansprechpartner, den Sie beim Namen kennen.</p>
+      <p class="sv-quote">Ein direkter Ansprechpartner. Kein Callcenter.</p>
+    </div>
+  </section>
+
+  <section class="sv-sec">
+    <div class="wrap">
+      <div class="sv-head">
+        <h2>Der schnellste Weg zu uns.</h2>
+        <p>Für die drei häufigsten Anliegen brauchen Sie keinen Anruf abzuwarten.</p>
+      </div>
+      <div class="sv-ways">
+        <a class="sv-way" href="stoerung1.html">
+          <span class="num">01</span>
+          <h3>Störung melden</h3>
+          <p>Beschreiben Sie das Problem im Dialog. Wir fragen gezielt nach und geben die Meldung als Serviceauftrag an die Disposition.</p>
+          <span class="go">Störung melden →</span>
+        </a>
+        <a class="sv-way" href="zaehlerstand.html">
+          <span class="num">02</span>
+          <h3>Zählerstand melden</h3>
+          <p>Zählerstände für die Abrechnung übermitteln — ohne Anruf, ohne Formularbrief, in einer Minute erledigt.</p>
+          <span class="go">Zählerstand übermitteln →</span>
+        </a>
+        <a class="sv-way" href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">
+          <span class="num">03</span>
+          <h3>Fernwartung starten</h3>
+          <p>Bei Software- und Treiberfragen schauen wir direkt auf Ihren Bildschirm. TeamViewer herunterladen und uns anrufen.</p>
+          <span class="go">TeamViewer laden ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sv-sec soft">
+    <div class="wrap">
+      <div class="sv-head">
+        <h2>Was unser Service umfasst.</h2>
+        <p>Vom Aufstellen bis zur datenschutzkonformen Entsorgung — wir begleiten das Gerät über seinen gesamten Lebenszyklus.</p>
+      </div>
+      <div class="sv-grid">
+        <div class="sv-card">
+          <h3>Wartung und Reparatur vor Ort</h3>
+          <p>Eigene Techniker reinigen, warten und reparieren direkt bei Ihnen. Termine vereinbaren Sie mit einem festen Ansprechpartner, nicht mit einer Warteschleife.</p>
+        </div>
+        <div class="sv-card">
+          <h3>Lieferung und Netzwerkanbindung</h3>
+          <p>Wir liefern, stellen auf und binden das Gerät sauber in Ihr Netzwerk ein — inklusive Treiber und Scan-Zielen.</p>
+        </div>
+        <div class="sv-card">
+          <h3>Einweisung Ihrer Key-User</h3>
+          <p>Präzise Einweisung in Bedienung und Software, damit die Funktionen auch genutzt werden, für die Sie bezahlen.</p>
+        </div>
+        <div class="sv-card">
+          <h3>Verbrauchsmaterial</h3>
+          <p>Toner und Ersatzteile passend zum Gerät, damit niemand im Zweifel zum falschen Produkt greift.</p>
+        </div>
+        <div class="sv-card">
+          <h3>Recycling und Datenlöschung</h3>
+          <p>Am Ende der Laufzeit: zertifizierte Datenlöschung nach DIN-Norm und Rückführung des Geräts ins Recycling.</p>
+        </div>
+        <div class="sv-card">
+          <h3>Deutschlandweiter Einsatz</h3>
+          <p>Auch wenn Sie mehrere Standorte betreiben: Der Service endet nicht an der Grenze der Wetterau.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sv-metric">
+    <div class="wrap in">
+      <div>
+        <div class="big">98,6&nbsp;%</div>
+        <div class="lbl">Verfügbarkeitsquote</div>
+      </div>
+      <p>Über alle betreuten Systeme hinweg — ein Wert, den wir seit Jahren kontinuierlich halten. <span style="color:#8d8b90">(Stand 31.12.2020)</span></p>
+    </div>
+  </section>
+
+  <section class="sv-sec">
+    <div class="wrap">
+      <div class="sv-head">
+        <h2>So läuft ein Serviceeinsatz.</h2>
+      </div>
+      <ol class="sv-steps">
+        <li class="sv-step">
+          <span class="n">01</span>
+          <div>
+            <h3>Sie melden die Störung</h3>
+            <p>Telefonisch oder über den Störungsassistenten. Wir klären gleich beim ersten Kontakt, was am Gerät passiert.</p>
+          </div>
+        </li>
+        <li class="sv-step">
+          <span class="n">02</span>
+          <div>
+            <h3>Wir prüfen, was sich sofort lösen lässt</h3>
+            <p>Vieles ist per Fernwartung oder mit einem Handgriff erledigt. Das spart Ihnen den Wartetag.</p>
+          </div>
+        </li>
+        <li class="sv-step">
+          <span class="n">03</span>
+          <div>
+            <h3>Techniker kommt mit Ersatzteil</h3>
+            <p>Wenn es vor Ort sein muss, kommt jemand, der das Gerät kennt — mit dem passenden Teil im Wagen.</p>
+          </div>
+        </li>
+        <li class="sv-step">
+          <span class="n">04</span>
+          <div>
+            <h3>Serviceauftrag und Rückmeldung</h3>
+            <p>Sie bekommen dokumentiert, was gemacht wurde. Bei Folgebedarf melden wir uns von selbst.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sv-sec soft">
+    <div class="wrap">
+      <div class="sv-head">
+        <h2>So erreichen Sie den Service.</h2>
+        <p>Sie landen bei einem Menschen, der Ihre Geräte kennt — nicht in einer Warteschleife.</p>
+      </div>
+      <div class="sv-person">
+        <div class="box">
+          <span class="lbl">Direkt anrufen</span>
+          <strong>06003 9414-0</strong>
+          <p>Der schnellste Weg, besonders wenn im laufenden Betrieb etwas stillsteht.<br>
+          Rufen Sie auch an, wenn Sie nicht sicher sind, ob es überhaupt ein Servicefall ist.</p>
+        </div>
+        <div class="box">
+          <span class="lbl">Schriftlich melden</span>
+          <strong>Störung oder Anfrage</strong>
+          <p>Für alles, was keinen Anruf braucht: Der Störungsassistent nimmt Ihre Meldung strukturiert auf.<br>
+          <a href="stoerung1.html">Störung melden →</a><br>
+          <a href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Kontakt aufnehmen">Kontaktformular öffnen →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sv-cta">
+    <div class="wrap">
+      <h2>Noch kein Servicevertrag?</h2>
+      <p>Wir schauen uns Ihren Gerätebestand an und sagen Ihnen, was ein Wartungsvertrag kostet — und wo er sich nicht lohnt.</p>
+      <div class="row">
+        <a class="btn" href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Beratung anfragen">Beratung anfragen →</a>
+        <a class="btn-ghost" href="stoerung1.html">Akute Störung melden</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site chrome-classic">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <img src="logo.png" width="300" height="94" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block;margin-bottom:20px">
+      <p class="foot-addr">Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+      Tel. <a href="tel:+4960039414-0">06003 9414-0</a><br>
+      Fax 06003 9414-24<br>
+      <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+    </div>
+    <div class="foot-col">
+      <div class="head">LEISTUNGEN</div>
+      <nav aria-label="Footer Leistungen">
+        <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+        <a href="index.html#leistungen-mps">Managed Print Services</a>
+        <a href="index.html#leistungen-dms">Dokumentenmanagement</a>
+        <a href="service.html">Service &amp; Support</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">SERVICE</div>
+      <nav aria-label="Footer Service">
+        <a href="zaehlerstand.html">Zählerstand melden</a>
+        <a href="stoerung1.html">Störungsmeldung</a>
+        <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">UNTERNEHMEN</div>
+      <nav aria-label="Footer Unternehmen">
+        <a href="ueber.html">Über uns</a>
+        <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+        <a href="kontakt.html">Kontakt &amp; Standorte</a>
+        <a href="karriere.html">Karriere</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">RECHTLICHES</div>
+      <nav aria-label="Footer Rechtliches">
+        <a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a>
+        <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a>
+        <a href="index.html?consent=1#cookie-einstellungen">Cookie-Einstellungen</a>
+      </nav>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 docunova GmbH · Herstellerunabhängige Bürotechnik-Beratung</span>
+    <span><a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a> · <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a></span>
+  </div>
+</footer>
+
+<footer class="chat-foot chrome-chat">
+  <div class="chat-foot-in">
+    <div class="cf-col">
+      <div class="cf-wm"><svg viewBox="0 0 26 26" aria-hidden="true"><polygon points="0,0 0,26 26,26" fill="#E30613"/></svg><b>docunova</b></div>
+      <p>Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+      Fon 06003 9414-0<br>Fax 06003 9414-24<br>
+      <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Service</div>
+      <a href="zaehlerstand.html">Zählerstand erfassen</a>
+      <a href="stoerung1.html">Störung melden</a>
+      <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">TeamViewer Fernwartung</a>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Standorte</div>
+      <p>Rosbach v. d. Höhe<br>Nidda — Wolff Bürotechnik</p>
+      <p style="margin-top:8px">Deutschlandweiter Service,<br>Ansprechpartner vor Ort.</p>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Unternehmen</div>
+      <a href="karriere.html">Karriere</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="index.html">Zurück zum Concierge</a>
+    </div>
+  </div>
+  <div class="chat-foot-base">
+    <span>© 2026 docunova GmbH · Wir für Ihr Büro — seit 1986</span>
+    <nav>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html?consent=1#cookie-einstellungen">Cookie-Einstellungen</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="site.js?v=20260729-3"></script>
+
+</body>
+</html>

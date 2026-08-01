@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>docunova — Drucken &amp; Kopieren, Dokumente und Kommunikation</title>
+<title>[Variante: Gebäude als Szene 04] docunova — Drucken &amp; Kopieren, Dokumente und Kommunikation</title>
 <meta name="description" content="Was hält Ihr Büro auf? docunova optimiert seit 1986 Drucken &amp; Kopieren, Dokumentenprozesse und Kommunikation in Frankfurt und der Wetterau — persönlich.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#f4f1eb">
@@ -121,7 +121,7 @@
   .hybrid-links .direct:hover{background:var(--red);border-color:var(--red);color:#fff}
 
   /* Scroll-Erzählung */
-  .story{height:300svh;position:relative;background:
+  .story{height:360svh;position:relative;background:
     radial-gradient(circle at 74% 42%,rgba(255,255,255,.9),rgba(255,255,255,0) 30%),
     linear-gradient(145deg,#f7f4ee 0%,#f0ebe2 58%,#e7dfd3 100%)}
   .story-pin{position:sticky;top:0;height:100svh;overflow:hidden;perspective:1500px;padding-top:70px}
@@ -373,7 +373,7 @@
     .hybrid-mark small,.hybrid-links>a:not(.direct){display:none}
     .hybrid-links{gap:0}
     .hybrid-links .direct{padding:9px 14px;font-size:.78rem}
-    .story{height:260svh}
+    .story{height:310svh}
     .story-intro{padding-inline:18px}
     .story-intro h1{font-size:clamp(2.8rem,13.5vw,4.5rem);max-width:8.5ch}
     .story-copy.two,.story-copy.three{left:20px;right:20px;top:15vh;max-width:none}
@@ -433,7 +433,7 @@
     .kform{padding:26px 18px}
   }
   /* Ruhige Apple-artige Scrollstrecke: eine Achse, ein Motiv, keine Überlagerung. */
-  .story{height:310svh}
+  .story{height:370svh}
   .story-pin{background:
     radial-gradient(circle at 50% 60%,rgba(255,255,255,.9),rgba(255,255,255,0) 48%),
     linear-gradient(180deg,#f7f5f0 0%,#f2efe8 100%)}
@@ -498,7 +498,7 @@
   .story-chat-live .chat-shell{box-shadow:0 25px 70px rgba(57,46,34,.16)}
 
   @media(max-width:700px){
-    .story{height:285svh}
+    .story{height:340svh}
     .story-copy.two,.story-copy.three{top:15%;width:calc(100vw - 36px)}
     .story-copy.two h2,.story-copy.three h2{font-size:clamp(1.75rem,8.2vw,2.35rem);max-width:14ch}
     .story-copy.two h2{max-width:none}
@@ -517,7 +517,7 @@
     .story{height:auto;min-height:100svh}
     .story-pin{position:relative;min-height:100svh}
     .story-intro{position:relative;min-height:100svh}
-    .document-scene,.story-visual,.story-copy.two,.story-copy.three,.story-chat-preview,.story-counter,.story-scroll{display:none!important}
+    .document-scene,.story-visual,.story-building,.story-copy.two,.story-copy.three,.story-chat-preview,.story-counter,.story-scroll{display:none!important}
     .story-chat-live{position:relative;inset:auto;opacity:1!important;pointer-events:auto;padding:90px 20px 40px}
   }
   /* Abschnittsgestaltung der Leistungsseite */
@@ -752,6 +752,22 @@
   }
   #dn-concierge.is-visible:hover{transform:translateY(-2px)}
 
+
+  /* ===== Szene 04: Firmengebäude ===== */
+  .story-building{
+    position:absolute;z-index:3;left:50%;top:60%;transform:translate(-50%,-50%);
+    width:min(900px,calc(100vw - 64px));margin:0;opacity:0;will-change:transform,opacity;text-align:center
+  }
+  .story-building .frame{position:relative;overflow:hidden;border-radius:3px;box-shadow:0 26px 70px rgba(72,59,43,.18)}
+  .story-building img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 58%}
+  .story-building .frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,0) 42%,rgba(11,11,12,.55) 100%)}
+  .story-building .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 26px;text-align:left}
+  .story-building .cap .k{font:600 .6rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#ff8fa3;display:block;margin-bottom:9px}
+  .story-building .cap .t{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:clamp(1.1rem,2.2vw,1.7rem);line-height:1.2;color:#fff;letter-spacing:-.02em}
+  @media (max-width:720px){
+    .story-building{top:58%;width:calc(100vw - 32px)}
+    .story-building .cap{padding:16px 18px}
+  }
 </style>
 <script
   src="https://analyse.docunova.de/api/script.js"
@@ -883,6 +899,17 @@
         <p>Sie bekommen direkt eine erste Einschätzung: was sich ändern lässt — und was es spart.</p>
       </div>
 
+
+      <figure class="story-building" id="storyBuilding" aria-hidden="true">
+        <div class="frame">
+          <img src="docu3.webp" alt="" width="1280" height="960" loading="lazy" decoding="async">
+          <figcaption class="cap">
+            <span class="k">Rosbach vor der Höhe</span>
+            <span class="t">Und dahinter stehen wir — seit 1986.</span>
+          </figcaption>
+        </div>
+      </figure>
+
       <div class="story-chat-live" id="chat">
         <div class="chat-shell" id="chatShell">
           <div class="chat-lead">
@@ -918,7 +945,7 @@
         </div>
       </div>
 
-      <div class="story-counter" aria-hidden="true"><span id="storyStep">01</span><span class="bar"></span>04</div>
+      <div class="story-counter" aria-hidden="true"><span id="storyStep">01</span><span class="bar"></span>05</div>
       <div class="story-scroll" aria-hidden="true">Scrollen</div>
     </div>
   </section>
@@ -1402,6 +1429,7 @@
   (() => {
     const story=$('.story'),intro=$('#storyIntro'),two=$('#storyTwo'),three=$('#storyThree');
     const visual=$('#storyVisual'),live=$('.story-chat-live'),step=$('#storyStep');
+    const building=$('#storyBuilding');
     const classicHero=$('.hero'),concierge=$('#dn-concierge');
     if(!story||reduced()) return;
     let ticking=false;
@@ -1416,7 +1444,7 @@
       intro.style.opacity=introOut;
       intro.style.transform=`translateY(${-p*42}px) scale(${1-p*.025})`;
 
-      const visualIn=clamp((p-.16)/.11),visualOut=clamp((p-.69)/.1);
+      const visualIn=clamp((p-.16)/.11),visualOut=clamp((p-.64)/.09);
       const zoom=clamp((p-.18)/.5);
       visual.style.opacity=String(visualIn*(1-visualOut));
       visual.style.transform=`translate(-50%,-50%) scale(${.97+zoom*.055})`;
@@ -1432,15 +1460,21 @@
       two.style.opacity=String(twoIn*(1-twoOut));
       two.style.transform=`translateX(-50%) translateY(${(1-twoIn)*20-twoOut*18}px)`;
 
-      const threeIn=clamp((p-.43)/.1),threeOut=clamp((p-.66)/.1);
+      const threeIn=clamp((p-.43)/.1),threeOut=clamp((p-.62)/.09);
       three.style.opacity=String(threeIn*(1-threeOut));
       three.style.transform=`translateX(-50%) translateY(${(1-threeIn)*20-threeOut*18}px)`;
 
-      const chatIn=clamp((p-.73)/.14);
+      const buildIn=clamp((p-.68)/.09),buildOut=clamp((p-.85)/.07);
+      if(building){
+        building.style.opacity=String(buildIn*(1-buildOut));
+        building.style.transform=`translate(-50%,-50%) scale(${.965+buildIn*.035})`;
+      }
+
+      const chatIn=clamp((p-.87)/.11);
       live.style.opacity=String(chatIn);
       live.style.transform=`translateY(${(1-chatIn)*20}px) scale(${.985+chatIn*.015})`;
       live.classList.toggle('active',chatIn>.92);
-      step.textContent=p<.18?'01':p<.4?'02':p<.7?'03':'04';
+      step.textContent=p<.18?'01':p<.4?'02':p<.66?'03':p<.86?'04':'05';
       if(classicHero&&concierge){
         concierge.classList.toggle('is-visible',classicHero.getBoundingClientRect().top<=innerHeight*.82);
       }

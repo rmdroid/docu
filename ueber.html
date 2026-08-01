@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Über uns — docunova GmbH</title>
+<meta name="description" content="Seit 1986 Bürotechnik aus Rosbach vor der Höhe: Geschichte, Werte und Team der docunova GmbH — herstellerunabhängig, deutschlandweiter Service, persönliche Hotline.">
+<link rel="canonical" href="https://docunova.de/ueber.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts-site.css">
+<link rel="stylesheet" href="site.css?v=20260729-2">
+<script>
+(function(){
+  try{
+    var s = JSON.parse(localStorage.getItem('dn-a11y') || '{}');
+    var h = document.documentElement;
+    if(s.bigtext) h.classList.add('a11y-bigtext');
+    if(s.contrast) h.classList.add('a11y-contrast');
+    if(s.gray) h.classList.add('a11y-gray');
+    if(s.noanim) h.classList.add('a11y-noanim');
+  }catch(e){}
+  if(localStorage.getItem('dn-view') === 'chat') document.documentElement.classList.add('view-chat');
+  if(new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embedded');
+})();
+</script>
+<style>
+  :root{
+    --paper:#FAF9F6;
+    --soft:#F2F0EB;
+    --mono:'Space Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Hanken Grotesk',sans-serif;background:var(--paper);color:#0B0B0C;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  /* Kopfbereich mit Firmengebäude */
+  .ub-hero{position:relative;background:#0B0B0C;color:#fff;overflow:hidden;padding:112px 0 96px}
+  .ub-hero .bg{position:absolute;inset:0;background:url('docu3.webp') center 58%/cover no-repeat;opacity:.5;filter:grayscale(.2) contrast(1.04)}
+  .ub-hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.72) 0%,rgba(11,11,12,.5) 48%,rgba(11,11,12,.62) 100%)}
+  .ub-hero .wrap{position:relative;z-index:2}
+  .ub-hero .eyebrow{color:#ff8a9c;margin-bottom:20px}
+  .ub-hero h1{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.02;letter-spacing:-.035em;margin:0;max-width:16ch;text-shadow:0 2px 30px rgba(0,0,0,.72)}
+  .ub-hero p{font-size:clamp(1rem,1.5vw,1.19rem);line-height:1.6;color:#e2e1e4;max-width:56ch;margin:26px 0 0;text-shadow:0 1px 18px rgba(0,0,0,.7)}
+  .ub-facts{display:flex;flex-wrap:wrap;gap:12px;margin:38px 0 0}
+  .ub-fact{border:1px solid rgba(255,255,255,.3);background:rgba(11,11,12,.35);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);border-radius:999px;padding:9px 16px;font-size:.82rem;color:#f0eff1}
+  .ub-caption{position:relative;z-index:2;margin:46px 0 0;font-size:.88rem;line-height:1.6;color:#c5c4c8;text-shadow:0 1px 14px rgba(0,0,0,.7)}
+  .ub-caption .lbl{font:600 .6rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#918f95;display:block;margin-bottom:6px}
+
+  /* Abschnitte */
+  .ub-sec{padding:88px 0}
+  .ub-sec.soft{background:var(--soft)}
+  .ub-head{max-width:62ch;margin:0 0 44px}
+  .ub-head h2{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1.06;letter-spacing:-.025em;margin:0}
+  .ub-head p{font-size:1.05rem;line-height:1.65;color:#55555c;margin:18px 0 0}
+
+  .ub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .ub-card{background:#fff;border:1px solid #e4e1db;border-radius:4px;padding:26px 24px}
+  .ub-sec.soft .ub-card{background:var(--paper)}
+  .ub-card h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.05rem;line-height:1.3;margin:0 0 10px}
+  .ub-card p{font-size:.95rem;line-height:1.6;color:#55555c;margin:0}
+
+  .ub-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px 34px}
+  .ub-list li{position:relative;padding-left:26px;font-size:1rem;line-height:1.6;color:#3d3d43}
+  .ub-list li::before{content:'';position:absolute;left:0;top:.55em;width:9px;height:9px;background:#D60A2E;clip-path:polygon(0 0,0 100%,100% 100%)}
+
+  /* Zeitleiste */
+  .ub-time{list-style:none;padding:0;margin:0;position:relative}
+  .ub-time::before{content:'';position:absolute;left:78px;top:6px;bottom:6px;width:1px;background:#ddd9d2}
+  .ub-tl{position:relative;display:grid;grid-template-columns:78px 1fr;gap:0 34px;padding:0 0 34px}
+  .ub-tl:last-child{padding-bottom:0}
+  .ub-year{font:700 .92rem/1.4 var(--mono);letter-spacing:.02em;color:#D60A2E;text-align:right;padding-right:17px}
+  .ub-tl .txt{position:relative}
+  .ub-tl .txt::before{content:'';position:absolute;left:-40px;top:.45em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:2px solid #D60A2E}
+  .ub-sec.soft .ub-tl .txt::before{background:var(--soft)}
+  .ub-tl h3{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.02rem;line-height:1.35;margin:0 0 7px}
+  .ub-tl p{font-size:.96rem;line-height:1.62;color:#55555c;margin:0}
+
+  /* Auszeichnungen */
+  .ub-tags{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+  .ub-tag{border:1px solid #d8d5cf;border-radius:999px;padding:9px 16px;font-size:.88rem;color:#3d3d43;background:#fff}
+  .ub-sec.soft .ub-tag{background:var(--paper)}
+
+  /* Standorte */
+  .ub-loc{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .ub-loc .box{border:1px solid #e4e1db;border-left:3px solid #D60A2E;background:#fff;padding:24px}
+  .ub-sec.soft .ub-loc .box{background:var(--paper)}
+  .ub-loc .box .lbl{font:600 .6rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#8b8b86;display:block;margin-bottom:12px}
+  .ub-loc .box strong{font-family:'Schibsted Grotesk',sans-serif;font-size:1.08rem;display:block;margin-bottom:8px}
+  .ub-loc .box p{font-size:.95rem;line-height:1.65;color:#55555c;margin:0}
+  .ub-loc .box a{color:#0B0B0C}
+
+  /* Abschluss */
+  .ub-cta{background:#0B0B0C;color:#fff;padding:72px 0}
+  .ub-cta h2{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.08;letter-spacing:-.025em;margin:0 0 16px}
+  .ub-cta p{font-size:1.03rem;line-height:1.6;color:#b9b9bf;max-width:52ch;margin:0 0 30px}
+  .ub-cta .row{display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+  .ub-cta .tel{font:700 1rem/1 var(--mono);color:#fff;text-decoration:none;letter-spacing:.02em;padding:14px 4px}
+
+  @media (max-width:640px){
+    .ub-hero{padding:76px 0 64px}
+    .ub-sec{padding:60px 0}
+    .ub-time::before{left:0}
+    .ub-tl{grid-template-columns:1fr;gap:6px}
+    .ub-year{text-align:left;padding-right:0;padding-left:24px}
+    .ub-tl .txt{padding-left:24px}
+    .ub-tl .txt::before{left:-5px}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<div class="a11y-fab">
+  <button type="button" id="a11yBtn" aria-expanded="false" aria-controls="a11yPanel" aria-label="Barrierefreiheits-Einstellungen öffnen">&#9855;</button>
+  <div class="a11y-panel" id="a11yPanel" role="group" aria-label="Barrierefreiheits-Einstellungen">
+    <h2>Barrierefreiheit</h2>
+    <button type="button" data-a11y="bigtext" aria-pressed="false">Große Schrift <span class="state">Aus</span></button>
+    <button type="button" data-a11y="contrast" aria-pressed="false">Hoher Kontrast <span class="state">Aus</span></button>
+    <button type="button" data-a11y="gray" aria-pressed="false">Graustufen <span class="state">Aus</span></button>
+    <button type="button" data-a11y="noanim" aria-pressed="false">Animationen stoppen <span class="state">Aus</span></button>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <span class="t" id="modalTitle">Dialog</span>
+      <span class="acts">
+        <a class="ext" id="modalExt" href="#" target="_blank" rel="noopener">In neuem Tab öffnen ↗</a>
+        <button type="button" data-close aria-label="Dialog schließen">&#10005;</button>
+      </span>
+    </div>
+    <iframe id="modalFrame" title="Dialog-Inhalt" src="about:blank"></iframe>
+  </div>
+</div>
+
+<header class="site chrome-classic">
+  <div class="nav-bar">
+    <a href="index.html" aria-label="docunova Startseite"><img src="logo.png" width="300" height="94" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block"></a>
+    <nav class="nav-desk" aria-label="Hauptnavigation">
+      <div class="nav-item">
+        <a href="index.html#leistungen">Leistungen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+          <a href="index.html#leistungen-mps">Managed Print Services</a>
+          <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
+          <a href="service.html">Service &amp; Support</a>
+        </div></div>
+      </div>
+      <a href="index.html#branchen">Branchen</a>
+      <div class="nav-item">
+        <a href="service.html">Service</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="service.html">Service &amp; Support</a>
+          <a href="zaehlerstand.html">Zählerstand melden</a>
+          <a href="stoerung1.html">Störungsmeldung</a>
+          <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="ueber.html">Unternehmen</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="ueber.html">Über uns</a>
+          <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+          <a href="kontakt.html#standorte">Standorte</a>
+          <a href="karriere.html">Karriere</a>
+        </div></div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="shop.html">Shop<span class="shop-badge">bald</span></a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="nav-cta" href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Beratung anfragen">Beratung anfragen</a>
+    </nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="navMobile" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile Navigation">
+    <div class="group">LEISTUNGEN</div>
+    <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+    <a href="index.html#leistungen-mps">Managed Print Services</a>
+    <a href="index.html#leistungen-dms">Dokumentenmanagement (DMS)</a>
+    <a href="service.html">Service &amp; Support</a>
+    <a class="big" href="index.html#branchen">Branchen</a>
+    <div class="group">SERVICE</div>
+    <a href="zaehlerstand.html">Zählerstand melden</a>
+    <a href="stoerung1.html">Störungsmeldung</a>
+    <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung (TeamViewer)</a>
+    <div class="group">UNTERNEHMEN</div>
+    <a href="ueber.html">Über uns</a>
+    <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+    <a href="kontakt.html#standorte">Standorte</a>
+    <a href="karriere.html">Karriere</a>
+    <a class="big" href="blog.html">Blog</a>
+    <a class="big" href="shop.html">Shop <span class="shop-badge">bald</span></a>
+    <a class="big" href="kontakt.html">Kontakt</a>
+    <a class="cta" href="kontakt.html">Beratung anfragen →</a>
+  </nav>
+</header>
+
+<header class="chat-top chrome-chat">
+  <div class="chat-top-in">
+    <a class="chat-wordmark" href="index.html" aria-label="Zurück zum docunova Concierge">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><polygon points="0,0 0,26 26,26" fill="#E30613"/></svg>
+      <span class="wm-text">
+        <span class="wm-name">docunova</span>
+        <span class="wm-sub">Document Solutions</span>
+      </span>
+    </a>
+    <div class="chat-top-right">
+      <a class="chat-alt" href="index.html">Alles im Überblick →</a>
+      <a class="chat-phone" href="tel:+4960039414-0">06003 9414-0</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="ub-hero" aria-labelledby="ubTitle">
+    <span class="bg" aria-hidden="true"></span>
+    <span class="veil" aria-hidden="true"></span>
+    <div class="wrap">
+      <p class="eyebrow">Über uns</p>
+      <h1 id="ubTitle">Umweltfreundliche Technologien für das ganze Büro.</h1>
+      <p>Ihr Partner aus dem Raum Frankfurt — mit deutschlandweitem Service, eigener Technikerflotte und einer Hotline, an der ein Mensch abnimmt.</p>
+      <div class="ub-facts">
+        <span class="ub-fact">40 Jahre Erfahrung</span>
+        <span class="ub-fact">Herstellerunabhängig</span>
+        <span class="ub-fact">Deutschlandweiter Service</span>
+        <span class="ub-fact">Hotline ohne Callcenter</span>
+      </div>
+      <p class="ub-caption"><span class="lbl">Firmensitz</span>Raiffeisenstraße 6 · 61191 Rosbach vor der Höhe</p>
+    </div>
+  </section>
+
+  <section class="ub-sec">
+    <div class="wrap">
+      <div class="ub-head">
+        <h2>Wir machen Ihr Büro schneller.</h2>
+        <p>Das Fundament dafür sind Erfahrungen aus vier Jahrzehnten — und der Anspruch, in verständlicher Sprache zu beraten statt in Datenblättern. Sie sollen am Ende wissen, wofür Sie zahlen und warum.</p>
+      </div>
+      <div class="ub-grid">
+        <div class="ub-card">
+          <h3>Beratung für Ihre Branche</h3>
+          <p>Eine Kanzlei arbeitet anders als eine Klinik oder ein Logistiker. Wir schauen auf Ihre Abläufe, bevor wir über Geräte sprechen.</p>
+        </div>
+        <div class="ub-card">
+          <h3>Flexibel finanzieren</h3>
+          <p>Kauf, Miete oder Leasing — mit Vertragsmodellen, die sich an Ihrer Nutzung orientieren und nicht umgekehrt.</p>
+        </div>
+        <div class="ub-card">
+          <h3>Eigene Technikerflotte</h3>
+          <p>Unsere Techniker sind angestellt, nicht zugekauft. Das ist der Grund, warum der Vor-Ort-Service schnell ist.</p>
+        </div>
+        <div class="ub-card">
+          <h3>Eigene Logistik</h3>
+          <p>Anlieferung, Aufstellung und Verbrauchsmaterial laufen über unsere eigene Abteilung — kurze Wege statt Schnittstellen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ub-sec soft">
+    <div class="wrap">
+      <div class="ub-head">
+        <h2>Was Sie von uns erwarten können.</h2>
+      </div>
+      <ul class="ub-list">
+        <li>Branchenspezifische Lösungsberatung</li>
+        <li>Finanzierungs- und Mietoptionen</li>
+        <li>Flexible Vertragsgestaltung</li>
+        <li>Maßgeschneiderte Druck- und Softwarelösungen</li>
+        <li>Schneller Vor-Ort-Service durch eigene Techniker</li>
+        <li>Persönliche Hotline ohne Callcenter</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ub-sec">
+    <div class="wrap">
+      <div class="ub-head">
+        <h2>Wie alles gewachsen ist.</h2>
+        <p>Vom Büromaschinenhandel in Friedberg zum Partner für Dokumentenmanagement in der Region Frankfurt.</p>
+      </div>
+      <ol class="ub-time">
+        <li class="ub-tl">
+          <span class="ub-year">1986</span>
+          <div class="txt">
+            <h3>Gründung in Friedberg</h3>
+            <p>Start als M. Schweikert Büroorganisation GmbH mit Büromaterial und Büromaschinenhandel.</p>
+          </div>
+        </li>
+        <li class="ub-tl">
+          <span class="ub-year">2001</span>
+          <div class="txt">
+            <h3>Umzug nach Rosbach</h3>
+            <p>Das Team wächst, der Schwerpunkt verschiebt sich zur Geräteanalyse und Kostenoptimierung.</p>
+          </div>
+        </li>
+        <li class="ub-tl">
+          <span class="ub-year">2010</span>
+          <div class="txt">
+            <h3>Einstieg ins Lösungsgeschäft</h3>
+            <p>Digitales Informations- und Dokumentenmanagement kommt als eigenes Geschäftsfeld dazu.</p>
+          </div>
+        </li>
+        <li class="ub-tl">
+          <span class="ub-year">2014</span>
+          <div class="txt">
+            <h3>Aus Schweikert wird docunova®</h3>
+            <p>Neuer Name, dieselbe Geschäftsführung durch den Gründer. Im selben Jahr die Auszeichnung als 5-Sterne-KYOCERA-Partner.</p>
+          </div>
+        </li>
+        <li class="ub-tl">
+          <span class="ub-year">2019</span>
+          <div class="txt">
+            <h3>Nachfolge durch Markus Ochs</h3>
+            <p>Übernahme durch Markus Ochs, der zwanzig Jahre Branchenerfahrung mitbringt. Das Leistungsversprechen bleibt unverändert.</p>
+          </div>
+        </li>
+        <li class="ub-tl">
+          <span class="ub-year">2020</span>
+          <div class="txt">
+            <h3>Wachstum trotz Pandemie</h3>
+            <p>Ein erfolgreiches Jahr, in dem das Team um drei Mitarbeiter größer wird.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="ub-sec soft">
+    <div class="wrap">
+      <div class="ub-head">
+        <h2>Auszeichnungen und Mitgliedschaften.</h2>
+      </div>
+      <div class="ub-tags">
+        <span class="ub-tag">5-Sterne-Partner KYOCERA</span>
+        <span class="ub-tag">Zertifikat Fokus Zukunft</span>
+        <span class="ub-tag">Deutscher Mittelstandsbund (DMB)</span>
+        <span class="ub-tag">Wirtschaft Bad Nauheim</span>
+      </div>
+      <div class="ub-head" style="margin:52px 0 24px">
+        <h2 style="font-size:clamp(1.5rem,2.6vw,2rem)">Wir unterstützen die Region.</h2>
+        <p>Sport und soziales Engagement gehören für uns zum Standort dazu.</p>
+      </div>
+      <div class="ub-tags">
+        <span class="ub-tag">Frankfurt Galaxy</span>
+        <span class="ub-tag">EC Bad Nauheim</span>
+        <span class="ub-tag">Sportherz e.&nbsp;V.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ub-sec" id="standorte">
+    <div class="wrap">
+      <div class="ub-head">
+        <h2>Zwei Standorte, kurze Wege.</h2>
+      </div>
+      <div class="ub-loc">
+        <div class="box">
+          <span class="lbl">Hauptsitz</span>
+          <strong>docunova GmbH</strong>
+          <p>Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+          Telefon <a href="tel:+4960039414-0">06003 9414-0</a><br>
+          Fax 06003 9414-24<br>
+          <a href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Kontakt aufnehmen">Über das Kontaktformular schreiben →</a></p>
+        </div>
+        <div class="box">
+          <span class="lbl">Zweiter Standort</span>
+          <strong>Wolff Bürotechnik</strong>
+          <p>Bahnhofstraße 11<br>63667 Nidda<br>
+          Telefon <a href="tel:+4960434621">06043 4621</a><br>
+          Fax 06043 3090<br>
+          <a href="https://www.wolff-buerotechnik.de/" target="_blank" rel="noopener">wolff-buerotechnik.de</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ub-cta">
+    <div class="wrap">
+      <h2>Sprechen wir über Ihr Büro.</h2>
+      <p>Ob Kostenanalyse, Leasingende oder eine konkrete Störung — sagen Sie uns, worum es geht.</p>
+      <div class="row">
+        <a class="btn" href="kontakt.html" data-modal="kontakt.html?embed=1" data-modal-title="Beratung anfragen">Beratung anfragen →</a>
+        <a class="tel" href="tel:+4960039414-0">06003 9414-0</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site chrome-classic">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <img src="logo.png" width="300" height="94" alt="docunova — Document Solutions" style="height:30px;width:auto;display:block;margin-bottom:20px">
+      <p class="foot-addr">Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+      Tel. <a href="tel:+4960039414-0">06003 9414-0</a><br>
+      Fax 06003 9414-24<br>
+      <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+    </div>
+    <div class="foot-col">
+      <div class="head">LEISTUNGEN</div>
+      <nav aria-label="Footer Leistungen">
+        <a href="index.html#leistungen-druck">Druck- &amp; Multifunktionssysteme</a>
+        <a href="index.html#leistungen-mps">Managed Print Services</a>
+        <a href="index.html#leistungen-dms">Dokumentenmanagement</a>
+        <a href="service.html">Service &amp; Support</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">SERVICE</div>
+      <nav aria-label="Footer Service">
+        <a href="zaehlerstand.html">Zählerstand melden</a>
+        <a href="stoerung1.html">Störungsmeldung</a>
+        <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">Fernwartung</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">UNTERNEHMEN</div>
+      <nav aria-label="Footer Unternehmen">
+        <a href="ueber.html">Über uns</a>
+        <a href="index.html#nachhaltigkeit">Nachhaltigkeit</a>
+        <a href="kontakt.html">Kontakt &amp; Standorte</a>
+        <a href="karriere.html">Karriere</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+    <div class="foot-col">
+      <div class="head">RECHTLICHES</div>
+      <nav aria-label="Footer Rechtliches">
+        <a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a>
+        <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a>
+        <a href="index.html?consent=1#cookie-einstellungen">Cookie-Einstellungen</a>
+      </nav>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 docunova GmbH · Herstellerunabhängige Bürotechnik-Beratung</span>
+    <span><a href="impressum.html" data-modal="impressum.html?embed=1" data-modal-title="Impressum">Impressum</a> · <a href="datenschutz.html" data-modal="datenschutz.html?embed=1" data-modal-title="Datenschutzerklärung">Datenschutz</a></span>
+  </div>
+</footer>
+
+<footer class="chat-foot chrome-chat">
+  <div class="chat-foot-in">
+    <div class="cf-col">
+      <div class="cf-wm"><svg viewBox="0 0 26 26" aria-hidden="true"><polygon points="0,0 0,26 26,26" fill="#E30613"/></svg><b>docunova</b></div>
+      <p>Raiffeisenstraße 6<br>61191 Rosbach vor der Höhe<br>
+      Fon 06003 9414-0<br>Fax 06003 9414-24<br>
+      <a href="mailto:info@docunova.de">info@docunova.de</a></p>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Service</div>
+      <a href="zaehlerstand.html">Zählerstand erfassen</a>
+      <a href="stoerung1.html">Störung melden</a>
+      <a href="https://www.teamviewer.com/de/download/windows/" target="_blank" rel="noopener">TeamViewer Fernwartung</a>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Standorte</div>
+      <p>Rosbach v. d. Höhe<br>Nidda — Wolff Bürotechnik</p>
+      <p style="margin-top:8px">Deutschlandweiter Service,<br>Ansprechpartner vor Ort.</p>
+    </div>
+    <div class="cf-col">
+      <div class="cf-h">Unternehmen</div>
+      <a href="karriere.html">Karriere</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="index.html">Zurück zum Concierge</a>
+    </div>
+  </div>
+  <div class="chat-foot-base">
+    <span>© 2026 docunova GmbH · Wir für Ihr Büro — seit 1986</span>
+    <nav>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html?consent=1#cookie-einstellungen">Cookie-Einstellungen</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="site.js?v=20260729-3"></script>
+
+</body>
+</html>
